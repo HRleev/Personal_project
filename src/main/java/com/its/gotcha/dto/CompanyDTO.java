@@ -8,4 +8,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyDTO {
+    long c_id;
+    String companyId;
+    String companyPassword;
+    String companyName;
+    String companyEmail;
+    String companyMobile;
+    String companyNumber;
+    String companyLocation;
+    int bootCount;
 }

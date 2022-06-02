@@ -11,5 +11,9 @@ public class MemberDTO {
     Long m_id;
     String memberId;
     String memberPassword;
+    String memberName;
+    String memberEmail;
+    String memberMobile;
+    String MemberLocation;
 }
 
