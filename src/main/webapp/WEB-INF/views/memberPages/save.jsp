@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>save</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <script src ="/resources/js/jquery.js"></script>
 </head>
 <body>
 <div class="container">
