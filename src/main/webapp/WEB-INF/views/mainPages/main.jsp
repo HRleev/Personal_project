@@ -79,16 +79,21 @@
 </style>
 </head>
 <body>
-<h2>자 이제 시작이야 </h2>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+
+
 <div class="container-fluid">
     <div id="carouselExample" class="carouselPrograms carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner row w-100 mx-auto" role="listbox">
-            <div class="carousel-item col-md-4  active">
+
+            <div class="carousel-item col-md-4  active" style="width:100px ;height:100px ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
                         <a href="#" title="image 1" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=1" alt="slide 1">
+                            <img class="img-fluid mx-auto d-block" src="https://img.freepik.com/free-vector/food-social-media-promotion-template_300191-259.jpg?w=826" alt="slide 1">
                         </a>
+
+
                     </div>
                 </div>
             </div>
@@ -167,8 +172,15 @@
         </a>
     </div>
 </div>
-
-
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>companyName</th>
+            <th>c_menu</th>
+            <th>c_menuFile</th>
+        </tr>
+    </table>
+</div>
 </body>
 <script>
 

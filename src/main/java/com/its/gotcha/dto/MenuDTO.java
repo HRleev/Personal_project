@@ -12,6 +12,7 @@ public class MenuDTO {
     long m_id;
     String companyName;
     String c_menu;
+    String c_introduction;
     MultipartFile c_menuFile;
     String c_menuFileName;
 }
