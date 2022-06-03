@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>main</title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
     @media (min-width: 768px) {
 
@@ -93,7 +95,7 @@
             <div class="carousel-item col-md-4 ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
-                        <a href="#" title="image 3" class="thumb">
+                        <a href="#" title="image 2" class="thumb">
                             <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=2" alt="slide 2">
                         </a>
                     </div>
@@ -102,7 +104,7 @@
             <div class="carousel-item col-md-4 ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
-                        <a href="#" title="image 4" class="thumb">
+                        <a href="#" title="image 3" class="thumb">
                             <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=3" alt="slide 3">
                         </a>
                     </div>
@@ -111,7 +113,7 @@
             <div class="carousel-item col-md-4 ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
-                        <a href="#" title="image 5" class="thumb">
+                        <a href="#" title="image 4" class="thumb">
                             <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=4" alt="slide 4">
                         </a>
                     </div>
@@ -120,7 +122,7 @@
             <div class="carousel-item col-md-4 ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
-                        <a href="#" title="image 6" class="thumb">
+                        <a href="#" title="image 5" class="thumb">
                             <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=5" alt="slide 5">
                         </a>
                     </div>
@@ -129,7 +131,7 @@
             <div class="carousel-item col-md-4 ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
-                        <a href="#" title="image 7" class="thumb">
+                        <a href="#" title="image 6" class="thumb">
                             <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=6" alt="slide 6">
                         </a>
                     </div>
@@ -138,7 +140,7 @@
             <div class="carousel-item col-md-4 ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
-                        <a href="#" title="image 8" class="thumb">
+                        <a href="#" title="image 7" class="thumb">
                             <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=7" alt="slide 7">
                         </a>
                     </div>
@@ -147,7 +149,7 @@
             <div class="carousel-item col-md-4  ">
                 <div class="panel panel-default">
                     <div class="panel-thumbnail">
-                        <a href="#" title="image 2" class="thumb">
+                        <a href="#" title="image 8" class="thumb">
                             <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=8" alt="slide 8">
                         </a>
                     </div>
@@ -191,10 +193,6 @@
             }
         }
     });
-
-
-
-
 
     $(document).ready(function() {
         /* show lightbox when clicking a thumbnail */
