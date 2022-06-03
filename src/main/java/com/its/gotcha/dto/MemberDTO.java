@@ -14,6 +14,6 @@ public class MemberDTO {
     String memberName;
     String memberEmail;
     String memberMobile;
-    String MemberLocation;
+    String memberLocation;
 }
 

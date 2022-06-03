@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 2022-06-02
-  Time: 오후 6:38
+  Date: 2022-06-03
+  Time: 오전 10:11
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>save</title>
+    <title>CompanySave</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <style>
@@ -101,10 +101,10 @@
 </head>
 <body>
 <div class="container">
-    <form action="/member/save" method="post">
+    <form action="/company/save" method="post">
         <label>
             <p class="label-txt">아이디</p>
-            <input type="text" class="input" onblur="duplicateCheck()" id="memberId" name="memberId">
+            <input type="text" class="input" onblur="duplicateCheck()" id="companyId" name="companyId">
             <div id="dup-check-result"></div>
             <div class="line-box">
                 <div class="line"></div>
@@ -112,22 +112,22 @@
         </label>
         <label>
             <p class="label-txt">비밀번호</p>
-            <input type="text" class="input" name="memberPassword" onblur="regular()" id="memberPassword"
+            <input type="text" class="input" name="companyPassword" onblur="regular()" id="companyPassword"
                    placeholder="영문 숫자 포함 5자 이상">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
         <label>
-            <p class="label-txt">이름</p>
-            <input type="text"class="input" name="memberName">
+            <p class="label-txt">상호명</p>
+            <input type="text"class="input" name="companyName">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
         <label>
             <p class="label-txt">Email</p>
-            <input type="text" class="input" name="memberEmail">
+            <input type="text" class="input" name="companyEmail">
             <div class="line-box">
 
                 <div class="line"></div>
@@ -135,26 +135,34 @@
         </label>
         <label>
             <p class="label-txt">전화번호</p>
-            <input type="text" class="input" name="memberMobile">
+            <input type="text" class="input" name="companyMobile">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">사업자등록번호</p>
+            <input type="text" class="input" name="companyNumber">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
         <label>
             <p class="label-txt">지역</p>
-            <input type="text" class="input" name="memberLocation">
+            <input type="text" class="input" name="companyLocation">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
-            <button type="submit">제출</button>
+        <button type="submit">제출</button>
     </form>
 </div>
 </body>
 <script>
-    const duplicateCheck = () => {
+    const duplicateCheck=()=>{
+
     }
-    const regular = () => {
+    const regular =()=>{
 
     }
 </script>

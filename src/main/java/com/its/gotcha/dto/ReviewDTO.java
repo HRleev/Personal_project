@@ -13,7 +13,7 @@ import java.security.Timestamp;
 public class ReviewDTO {
     long r_id;
     long c_id;
-    String memberId;
+    String m_id;
     String reviewContents;
     Timestamp reviewTime;
 }
