@@ -13,6 +13,7 @@
     <script src="/resources/js/jquery.js"></script>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         * {box-sizing: border-box;}
         body {font-family: Verdana, sans-serif;}
@@ -85,19 +86,21 @@
 
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
-            <img src="../../img/FGQGUxEVQAQyk9T.jpg" style="width:20%">
+            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
             <div class="text">Caption Text</div>
+
+
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
-            <img src="img_snow_wide.jpg" style="width:20%">
+            <img src="../../img/img1.jpg" style="width:20%">
             <div class="text">Caption Two</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 3</div>
-            <img src="img_mountains_wide.jpg" style="width:20%">
+            <img src="../../img/img1.jpg" style="width:20%">
             <div class="text">Caption Three</div>
         </div>
 

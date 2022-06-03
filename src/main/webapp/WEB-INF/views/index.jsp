@@ -17,5 +17,9 @@
 <button class=btn-primary onclick=location.href="/company/save">기업회원가입</button>
 <button class=btn-primary onclick=location.href="/main/main">Main</button>
 
+
+<div class="number text">1 / 3</div>
+<img src="./img/img1.jpg" alt="" style="width:20%">
+<div class="text">Caption Text</div>
 </body>
 </html>
