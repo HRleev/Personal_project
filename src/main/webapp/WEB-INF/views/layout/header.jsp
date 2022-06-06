@@ -13,12 +13,13 @@
     <script src="/resources/js/jquery.js"></script>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
         /** {box-sizing: border-box;}*/
         body {
             font-family: Verdana, sans-serif;
-
+            margin-top: 50px;
         }
 
         .mySlides {
