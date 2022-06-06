@@ -16,10 +16,11 @@
         .circle {
             height: 80px;
             width: 80px;
-            /*background-image: url("https://cdn-icons-png.flaticon.com/512/25/25231.png");*/
-            background-color: aquamarine;
             border-radius: 50%;
             margin-left: 40px;
+        }
+        .icon{
+            margin-left: 300px;
         }
 
     </style>
@@ -27,9 +28,14 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
-<div class="circle">
+<div class="icon">
+    <img src="../../../resources/img/icon1.jpeg" style="width:10%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon2.jpeg" style="width:10%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon3.jpeg" style="width:10%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon4.jpeg" style="width:10%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon5.jpeg" style="width:10%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon6.jpeg" style="width:10%">
 </div>
-
 <div class="container">
     <table class="table table-striped">
         <tr>
