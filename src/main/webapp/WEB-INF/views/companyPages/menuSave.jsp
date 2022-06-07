@@ -10,11 +10,11 @@
 <head>
     <title>menuSave</title>
     <style>
-    body {
-        padding-top: 70px;
-        padding-bottom: 30px;}
+        body {
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
     </style>
-
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
@@ -28,8 +28,8 @@
                        placeholder="시그니쳐"></div>
             <div class="mb-3">
                 <label for="companyName">companyName</label>
-                <input type="text" class="form-control" name="companyName" id="companyName"
-                       placeholder="${sessionScope.loginCompanyId}"readonly></div>
+                <input type="text" class="form-control" name="companyName"value="${sessionScope.loginCompanyId}" id="companyName"
+                       placeholder="${sessionScope.loginCompanyId}" readonly></div>
             <div class="mb-3">
                 <label for="c_introduction">소개</label>
                 <textarea class="form-control" rows="5" name="c_introduction" id="c_introduction"
@@ -37,12 +37,11 @@
             <div class="mb-3"><label for="c_menuFile">파일</label>
                 <input type="file" class="form-control" name="c_menuFile"
                        id="c_menuFile" placeholder="첨부파일을입력해주세요"></div>
+            <div>
+                <input type="submit" class="btn btn-sm btn-primary" value="저장">
+            </div>
         </form>
-        <div>
-            <button type="submit" class="btn btn-sm btn-primary" id="btnSave">저장</button>
 
-
-        </div>
     </div>
 </article>
 
