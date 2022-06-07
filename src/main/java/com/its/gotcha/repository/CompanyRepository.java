@@ -12,4 +12,11 @@ public class CompanyRepository {
     public void save(CompanyDTO companyDTO) {
         sql.insert("Company.save",companyDTO);
     }
+
+    public CompanyDTO login(CompanyDTO companyDTO) {
+        CompanyDTO loginResult=sql.selectOne("Company.login",companyDTO);
+        System.out.println("CompanyRepository.login");
+        System.out.println("companyDTO = " + companyDTO);
+        return loginResult;
+    }
 }

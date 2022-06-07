@@ -16,6 +16,9 @@
 <button class=btn-primary onclick=location.href="/member/save">개인회원가입</button>
 <button class=btn-primary onclick=location.href="/company/save">기업회원가입</button>
 <button class=btn-primary onclick=location.href="/main/main">Main</button>
+<button class=btn-primary onclick=location.href="/member/login">개인회원login</button>
+<button class=btn-primary onclick=location.href="/company/login">기업회원login</button>
+
 
 </body>
 </html>

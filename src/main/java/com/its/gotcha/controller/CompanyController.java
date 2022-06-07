@@ -4,10 +4,13 @@ import com.its.gotcha.dto.CompanyDTO;
 import com.its.gotcha.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/company")
@@ -25,5 +28,28 @@ public class CompanyController {
     public String saveForm(@ModelAttribute CompanyDTO companyDTO) {
         companyService.save(companyDTO);
         return "/mainPages/main";
+    }
+    @GetMapping("/login")
+    public String login(){
+        return "companyPages/login";
+    }
+    @PostMapping("/login")
+    public String loginForm(@ModelAttribute CompanyDTO companyDTO , Model model, HttpSession session){
+        CompanyDTO loginCompany = companyService.login(companyDTO);
+        System.out.println("CompanyController.loginForm");
+        System.out.println(loginCompany);
+        if(loginCompany!=null){
+            model.addAttribute(companyDTO);
+            session.setAttribute("loginCompanyId",loginCompany.getCompanyId());
+            session.setAttribute("loginId",loginCompany.getC_id());
+            return "mainPages/main";
+        }
+        else {
+            return "companyPages/login";
+        }
+    }@GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "mainPages/main";
     }
 }

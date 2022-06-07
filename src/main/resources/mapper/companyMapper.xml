@@ -8,4 +8,7 @@
         insert into company_table (companyId,companyPassword,companyName,companyEmail,companyMobile,companyNumber,companyLocation)
                 values (#{companyId},#{companyPassword},#{companyName},#{companyEmail},#{companyMobile},#{companyNumber},#{companyLocation})
     </insert>
+    <select id="login" resultType="company">
+        select * from company_table where companyId=#{companyId} and companyPassword=#{companyPassword}
+    </select>
 </mapper>

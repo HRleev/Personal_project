@@ -15,4 +15,11 @@ public class CompanyService {
         companyRepository.save(companyDTO);
 
     }
+
+    public CompanyDTO login(CompanyDTO companyDTO) {
+        CompanyDTO loginCompany=companyRepository.login(companyDTO);
+        System.out.println("CompanyService.login");
+        System.out.println("companyDTO = " + companyDTO);
+        return loginCompany;
+    }
 }

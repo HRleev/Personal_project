@@ -13,28 +13,26 @@
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .circle {
-            height: 80px;
-            width: 80px;
-            border-radius: 50%;
-            margin-left: 40px;
-        }
         .icon{
-            margin-left: 300px;
+            /*margin-left: 300px;*/
+            text-align: center;
+
         }
 
     </style>
 </head>
 <body>
+
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
+
 <div class="icon">
-    <img src="../../../resources/img/icon1.jpeg" style="width:10%">&nbsp;&nbsp;
-    <img src="../../../resources/img/icon2.jpeg" style="width:10%">&nbsp;&nbsp;
-    <img src="../../../resources/img/icon3.jpeg" style="width:10%">&nbsp;&nbsp;
-    <img src="../../../resources/img/icon4.jpeg" style="width:10%">&nbsp;&nbsp;
-    <img src="../../../resources/img/icon5.jpeg" style="width:10%">&nbsp;&nbsp;
-    <img src="../../../resources/img/icon6.jpeg" style="width:10%">
+    <img src="../../../resources/img/icon1.jpeg" style="width:5%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon2.jpeg" style="width:5%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon3.jpeg" style="width:5%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon4.jpeg" style="width:5%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon5.jpeg" style="width:5%">&nbsp;&nbsp;
+    <img src="../../../resources/img/icon6.jpeg" style="width:5%">
 </div>
 <div class="container">
     <table class="table table-striped">

@@ -12,4 +12,9 @@ public class MemberRepository {
     public void save(MemberDTO memberDTO) {
     sql.insert("Member.save",memberDTO);
     }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        MemberDTO loginResult =sql.selectOne("Member.login",memberDTO);
+        return loginResult;
+    }
 }

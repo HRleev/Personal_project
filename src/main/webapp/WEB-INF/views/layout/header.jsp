@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -16,10 +17,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
-        /** {box-sizing: border-box;}*/
+        * {box-sizing: border-box;}
         body {
             font-family: Verdana, sans-serif;
-            margin-top: 50px;
+            text-align:center;
         }
 
         .mySlides {
@@ -31,8 +32,7 @@
         /* Slideshow container */
         .slideshow-container {
             max-width: 1000px;
-            /*position: relative;*/
-            margin: auto;
+            margin-left: 25%;
         }
 
         /* Caption text */
@@ -91,41 +91,57 @@
                 font-size: 11px
             }
         }
+        /*.btn-group me-2{*/
+        /*    float: right;*/
+        /*}*/
     </style>
 </head>
 <body>
 <header>
-
-    <div class="slideshow-container">
-
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
-            <div class="text">Caption Text</div>
-
-
+        <div class="btn-group m-2" name="icons" role="group" aria-label="First group">
+            <a href="/" class="btn btn-outline-secondary">Home</a> &nbsp;
+            <a href="/member/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
+            <a href="/company/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
+            <a href="/member/login" class="btn btn-outline-secondary">개인회원로그인</a> &nbsp;
+            <a href="/company/login" class="btn btn-outline-secondary">기업회원로그인</a> &nbsp;
+            <c:if test="${sessionScope.loginMemberId !=null}">
+            <a href="/member/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
+            </c:if>
+            <c:if test="${sessionScope.loginCompanyId !=null}">
+            <a href="/company/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
+            </c:if>
         </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
-            <div class="text">Caption Two</div>
-        </div>
+            <div class="slideshow-container">
 
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
-            <div class="text">Caption Three</div>
-        </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+                    <div class="text">Caption Text</div>
 
-    </div>
-    <br>
 
-    <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+                    <div class="text">Caption Two</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+                    <div class="text">Caption Three</div>
+                </div>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
 </header>
 </body>
 <script>
