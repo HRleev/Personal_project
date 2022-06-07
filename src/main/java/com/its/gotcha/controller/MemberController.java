@@ -5,12 +5,10 @@ import com.its.gotcha.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -50,5 +48,20 @@ public class MemberController {
     public String logout(HttpSession session){
        session.invalidate();
        return "mainPages/main";
+    }
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        List<MemberDTO> memberDTOList=memberService.findAll();
+        model.addAttribute("memberList",memberDTOList);
+        return "memberPages/memberList";
+    }
+    @PostMapping("/delete")
+    public String delete(@RequestParam("m_id")long m_id, Model model){
+        boolean deleteResult=memberService.delete(m_id);
+        if(deleteResult){
+            return "redirect:/member/findAll";
+        }else{
+            return "memberPages/memberList";
+        }
     }
 }

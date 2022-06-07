@@ -17,10 +17,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
-        * {box-sizing: border-box;}
+        * {
+            align-content:center;
+            box-sizing: border-box;
+        }
         body {
             font-family: Verdana, sans-serif;
-            text-align:center;
+            /*align-content:center;*/
         }
 
         .mySlides {
@@ -32,7 +35,9 @@
         /* Slideshow container */
         .slideshow-container {
             max-width: 1000px;
+            margin-top: 10px;
             margin-left: 25%;
+
         }
 
         /* Caption text */
@@ -91,14 +96,15 @@
                 font-size: 11px
             }
         }
-        /*.btn-group me-2{*/
-        /*    float: right;*/
-        /*}*/
+        .nav{
+            background-color:#ced4da;
+        }
     </style>
 </head>
 <body>
 <header>
-        <div class="btn-group m-2" name="icons" role="group" aria-label="First group">
+    <div class="nav">
+        <div class="btn-group m-2" role="group" aria-label="First group">
             <a href="/" class="btn btn-outline-secondary">Home</a> &nbsp;
             <a href="/member/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
             <a href="/company/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
@@ -110,8 +116,17 @@
             <c:if test="${sessionScope.loginCompanyId !=null}">
             <a href="/company/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
             </c:if>
+            <c:if test="${sessionScope.loginCompanyId eq 'admin'}">
+                <a href="/member/findAll" class="btn btn-outline-secondary">개인회원목록</a>&nbsp;
+            </c:if>
+            <c:if test="${sessionScope.loginCompanyId eq 'admin'}">
+                <a href="/company/findAll" class="btn btn-outline-secondary">기업회원목록</a>&nbsp;
+            </c:if>
+            <c:if test="${sessionScope.loginCompanyId != null}">
+                <a href="/company/detail" class="btn btn-outline-secondary">myPage</a>&nbsp;
+            </c:if>
         </div>
-
+    </div>
             <div class="slideshow-container">
 
                 <div class="mySlides fade">

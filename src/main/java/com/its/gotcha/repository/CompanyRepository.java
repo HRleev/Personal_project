@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class CompanyRepository {
     @Autowired
@@ -18,5 +20,18 @@ public class CompanyRepository {
         System.out.println("CompanyRepository.login");
         System.out.println("companyDTO = " + companyDTO);
         return loginResult;
+    }
+
+    public List<CompanyDTO> findAll() {
+        return sql.selectList("Company.findAll");
+    }
+
+    public int delete(long c_id) {
+        return sql.delete("Company.delete",c_id);
+    }
+
+
+    public CompanyDTO findById(long checkId) {
+        return sql.selectOne("Company.findById",checkId);
     }
 }

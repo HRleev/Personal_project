@@ -5,12 +5,10 @@ import com.its.gotcha.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/company")
@@ -52,4 +50,27 @@ public class CompanyController {
         session.invalidate();
         return "mainPages/main";
     }
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        List<CompanyDTO>companyDTOList=companyService.findAll();
+        model.addAttribute("companyList",companyDTOList);
+        return "companyPages/companyList";
+    }
+    @PostMapping("/delete")
+    public String delete(@RequestParam("c_id")long c_id,Model model){
+        boolean deleteResult=companyService.delete(c_id);
+        if(deleteResult){
+            return "redirect:/company/findAll";
+        }else{
+            return "companyPages/companyList";
+        }
+    }
+    @GetMapping("/detail")
+    public String findById( Model model,HttpSession session){
+        long checkId=(Long) session.getAttribute("loginId");
+        CompanyDTO companyDTO =companyService.findById(checkId);
+        model.addAttribute("company",companyDTO);
+        return "companyPages/myPage";
+    }
+
 }

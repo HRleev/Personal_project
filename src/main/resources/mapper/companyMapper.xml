@@ -11,4 +11,13 @@
     <select id="login" resultType="company">
         select * from company_table where companyId=#{companyId} and companyPassword=#{companyPassword}
     </select>
+    <select id="findAll" resultType="company">
+        select * from company_table
+    </select>
+    <delete id="delete" parameterType="long">
+        delete from company_table where c_id=#{c_id}
+    </delete>
+    <select id="findById" resultType="company">
+        select *from company_table where c_id=#{c_id}
+    </select>
 </mapper>

@@ -5,6 +5,8 @@ import com.its.gotcha.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MemberService {
     @Autowired
@@ -17,5 +19,19 @@ public class MemberService {
         MemberDTO loginMember =memberRepository.login(memberDTO);
         return loginMember;
 
+    }
+
+    public List<MemberDTO> findAll() {
+        List<MemberDTO>memberDTOList=memberRepository.findAll();
+        return memberDTOList;
+    }
+
+    public boolean delete(long m_id) {
+        int deleteResult=memberRepository.delete(m_id);
+        if(deleteResult >0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

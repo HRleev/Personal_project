@@ -27,7 +27,8 @@
 
 
 <div class="icon">
-    <img src="../../../resources/img/icon1.jpeg" style="width:5%">&nbsp;&nbsp;
+    <a href="/main/main">
+        <img src="../../../resources/img/icon1.jpeg" style="width:5%">&nbsp;&nbsp;</a>
     <img src="../../../resources/img/icon2.jpeg" style="width:5%">&nbsp;&nbsp;
     <img src="../../../resources/img/icon3.jpeg" style="width:5%">&nbsp;&nbsp;
     <img src="../../../resources/img/icon4.jpeg" style="width:5%">&nbsp;&nbsp;
@@ -39,6 +40,7 @@
         <tr>
             <th>companyName</th>
             <th>c_menu</th>
+            <th>c_introduction</th>
             <th>c_menuFile</th>
         </tr>
     </table>
