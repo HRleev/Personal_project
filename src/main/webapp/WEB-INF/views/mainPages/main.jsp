@@ -48,21 +48,23 @@
             <th>companyName</th>
             <th>c_menu</th>
             <th>c_introduction</th>
-            <th>c_menuFile</th>
+<%--            <th>c_menuFile</th>--%>
             <th>c_location</th>
             <th>예약</th>
         </tr>
         <c:forEach items="${menuList}" var="menuList">
             <tr>
-                <td><a href="/company/detail?companyName=${companyName}"> ${menuList.companyName}</a></td>
+                <td><a href="/menu/detail?companyName=${companyName}"> ${menuList.companyName}</a></td>
                 <td>${menuList.c_menu}</td>
                 <td>${menuList.c_introduction}</td>
-                <td>${menuList.c_menuFile}</td>
+<%--                <td>${menuList.c_menuFile}</td>--%>
                 <td>${menuList.c_location}</td>
                 <td><a href="/boot/save?companyName=${menuList.companyName}">예약</a></td>
             </tr>
         </c:forEach>
     </table>
 </div>
+<h2 style="text-align:center">Product Card</h2>
+
 </body>
 </html>

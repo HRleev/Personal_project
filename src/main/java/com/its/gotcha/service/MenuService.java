@@ -25,4 +25,8 @@ public class MenuService {
         }
         menuRepository.save(menuDTO);
     }
+
+    public MenuDTO findById(MenuDTO menuDTO) {
+        return menuRepository.findById(menuDTO);
+    }
 }

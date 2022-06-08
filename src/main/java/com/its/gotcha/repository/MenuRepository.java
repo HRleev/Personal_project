@@ -13,4 +13,8 @@ public class MenuRepository {
     public void save(MenuDTO menuDTO) {
         sql.insert("Menu.save",menuDTO);
     }
+
+    public MenuDTO findById(MenuDTO menuDTO) {
+        return sql.selectOne("Menu.findById",menuDTO);
+    }
 }

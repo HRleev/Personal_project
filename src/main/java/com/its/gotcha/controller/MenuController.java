@@ -31,5 +31,11 @@ public class MenuController {
         menuService.save(menuDTO);
         return "redirect:/main/main";
     }
+    @GetMapping("/detail")
+    public String findById(@ModelAttribute MenuDTO menuDTO,Model model){
+        MenuDTO menu=menuService.findById(menuDTO);
+        model.addAttribute("menu",menu);
+        return "/companyPages/detail";
+    }
 
 }

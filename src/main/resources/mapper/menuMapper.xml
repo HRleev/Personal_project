@@ -14,4 +14,7 @@
     <select id="findLocation" parameterType="String" resultType="menu">
         select * from menu_table where c_location=#{c_location}
     </select>
+    <select id="findById" resultType="menu">
+        select *from menu_table where companyName=#{companyName}
+    </select>
 </mapper>

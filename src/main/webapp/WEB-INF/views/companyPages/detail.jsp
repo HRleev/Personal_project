@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -9,8 +10,33 @@
 <html>
 <head>
     <title>detail</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <script src="/resources/js/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>companyName</th>
+            <th>c_menu</th>
+            <th>c_introduction</th>
+            <th>c_menuFile</th>
+            <th>c_location</th>
+            <th>예약</th>
+        </tr>
 
+        <tr>
+            <td>${menu.companyName}</td>
+            <td>${menu.c_menu}</td>
+            <td>${menu.c_introduction}</td>
+            <td>${menu.c_menuFile}</td>
+            <td>${menu.c_location}</td>
+            <td><a href="/boot/save?companyName=${menuList.companyName}">예약</a></td>
+        </tr>
+
+    </table>
+</div>
 </body>
 </html>
