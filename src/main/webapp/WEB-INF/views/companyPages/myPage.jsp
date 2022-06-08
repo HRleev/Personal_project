@@ -10,6 +10,9 @@
 <html>
 <head>
     <title>MyPage</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <script src="/resources/js/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>

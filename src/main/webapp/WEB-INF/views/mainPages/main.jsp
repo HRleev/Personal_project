@@ -54,12 +54,12 @@
         </tr>
         <c:forEach items="${menuList}" var="menuList">
             <tr>
-                <td>${menuList.companyName}</td>
+                <td><a href="/company/detail?companyName=${companyName}"> ${menuList.companyName}</a></td>
                 <td>${menuList.c_menu}</td>
                 <td>${menuList.c_introduction}</td>
                 <td>${menuList.c_menuFile}</td>
                 <td>${menuList.c_location}</td>
-                <td><a href="/board/detail?b_id=${menuList.m_id}">예약</a></td>
+                <td><a href="/boot/save?companyName=${menuList.companyName}">예약</a></td>
             </tr>
         </c:forEach>
     </table>
