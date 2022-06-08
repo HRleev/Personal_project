@@ -1,3 +1,5 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 82102
@@ -13,7 +15,7 @@
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .icon{
+        .icon {
             /*margin-left: 300px;*/
             text-align: center;
 
@@ -42,7 +44,17 @@
             <th>c_menu</th>
             <th>c_introduction</th>
             <th>c_menuFile</th>
+            <th>예약</th>
         </tr>
+        <c:forEach items="${menuList}" var="menuList">
+            <tr>
+                <td>${menuList.companyName}</td>
+                <td>${menuList.c_menu}</td>
+                <td>${menuList.c_introduction}</td>
+                <td>${menuList.c_menuFile}</td>
+                <td><a href="/board/detail?b_id=${menuList.m_id}">예약</a></td>
+            </tr>
+        </c:forEach>
     </table>
 </div>
 </body>

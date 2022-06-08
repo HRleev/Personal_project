@@ -8,4 +8,7 @@
     insert into menu_table (companyName,c_menu,c_introduction,c_menuFileName)
             values (#{companyName},#{c_menu},#{c_introduction},#{c_menuFileName})
 </insert>
+    <select id="findAll" resultType="menu">
+        select * from menu_table
+    </select>
 </mapper>

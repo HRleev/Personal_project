@@ -43,7 +43,9 @@ public class CompanyController {
             return "mainPages/main";
         }
         else {
-            return "companyPages/login";
+
+
+            return "mainPages/login";
         }
     }@GetMapping("/logout")
     public String logout(HttpSession session){

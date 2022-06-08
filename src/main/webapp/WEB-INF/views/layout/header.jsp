@@ -17,12 +17,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
+        @font-face {
+            font-family: 'SuncheonB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
-            align-content:center;
+            align-content: center;
             box-sizing: border-box;
         }
+
         body {
-            font-family: Verdana, sans-serif;
+            font-family: 'SuncheonB';
+            /*font-family: Verdana, sans-serif;*/
             /*align-content:center;*/
         }
 
@@ -96,8 +105,9 @@
                 font-size: 11px
             }
         }
-        .nav{
-            background-color:#ced4da;
+
+        .nav {
+            background-color: #ced4da;
         }
     </style>
 </head>
@@ -106,20 +116,25 @@
     <div class="nav">
         <div class="btn-group m-2" role="group" aria-label="First group">
             <a href="/" class="btn btn-outline-secondary">Home</a> &nbsp;
-            <a href="/member/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
-            <a href="/company/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
-            <a href="/member/login" class="btn btn-outline-secondary">개인회원로그인</a> &nbsp;
-            <a href="/company/login" class="btn btn-outline-secondary">기업회원로그인</a> &nbsp;
+            <c:if test="${sessionScope.loginMemberId ==null}">
+                <a href="/member/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
+            </c:if>
+            <c:if test="${sessionScope.loginMemberId ==null}">
+                <a href="/company/save" class="btn btn-outline-secondary">기업회원가입</a> &nbsp;
+            </c:if>
+            <c:if test="${sessionScope.loginMemberId ==null}">
+                <a href="/member/login" class="btn btn-outline-secondary">로그인</a> &nbsp;&nbsp;
+            </c:if>
             <c:if test="${sessionScope.loginMemberId !=null}">
-            <a href="/member/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
+                <a href="/member/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginCompanyId !=null}">
-            <a href="/company/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
+                <a href="/company/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginCompanyId eq 'admin'}">
+            <c:if test="${sessionScope.loginMemberId eq 'admin'}">
                 <a href="/member/findAll" class="btn btn-outline-secondary">개인회원목록</a>&nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginCompanyId eq 'admin'}">
+            <c:if test="${sessionScope.loginMemberId eq 'admin'}">
                 <a href="/company/findAll" class="btn btn-outline-secondary">기업회원목록</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginCompanyId != null}">
@@ -127,36 +142,36 @@
             </c:if>
         </div>
     </div>
-            <div class="slideshow-container">
+    <div class="slideshow-container">
 
-                <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
-                    <div class="text">Caption Text</div>
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+            <div class="text">Caption Text</div>
 
 
-                </div>
+        </div>
 
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
-                </div>
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
 
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
-                    <div class="text">Caption Three</div>
-                </div>
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+            <div class="text">Caption Three</div>
+        </div>
 
-            </div>
-            <br>
+    </div>
+    <br>
 
-            <div style="text-align:center">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
 </header>
 </body>
 <script>
