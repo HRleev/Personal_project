@@ -5,10 +5,13 @@
 
 <mapper namespace="Menu">
 <insert id="save">
-    insert into menu_table (companyName,c_menu,c_introduction,c_menuFileName)
-            values (#{companyName},#{c_menu},#{c_introduction},#{c_menuFileName})
+    insert into menu_table (companyName,c_menu,c_introduction,c_menuFileName,c_location)
+            values (#{companyName},#{c_menu},#{c_introduction},#{c_menuFileName},#{c_location})
 </insert>
     <select id="findAll" resultType="menu">
         select * from menu_table
+    </select>
+    <select id="findLocation" parameterType="String" resultType="menu">
+        select * from menu_table where c_location=#{c_location}
     </select>
 </mapper>

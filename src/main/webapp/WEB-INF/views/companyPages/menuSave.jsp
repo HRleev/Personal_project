@@ -27,6 +27,10 @@
                 <input type="text" class="form-control" name="c_menu" id="c_menu"
                        placeholder="시그니쳐"></div>
             <div class="mb-3">
+                <label for="c_location">지역</label>
+                <input type="text" class="form-control" name="c_location" id="c_location"
+                       placeholder="지역"></div>
+            <div class="mb-3">
                 <label for="companyName">companyName</label>
                 <input type="text" class="form-control" name="companyName"value="${sessionScope.loginCompanyId}" id="companyName"
                        placeholder="${sessionScope.loginCompanyId}" readonly></div>

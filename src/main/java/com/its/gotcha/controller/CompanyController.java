@@ -29,7 +29,7 @@ public class CompanyController {
     }
     @GetMapping("/login")
     public String login(){
-        return "companyPages/login";
+        return "mainPages/login";
     }
     @PostMapping("/login")
     public String loginForm(@ModelAttribute CompanyDTO companyDTO , Model model, HttpSession session){
@@ -43,8 +43,6 @@ public class CompanyController {
             return "mainPages/main";
         }
         else {
-
-
             return "mainPages/login";
         }
     }@GetMapping("/logout")

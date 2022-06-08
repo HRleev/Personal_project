@@ -5,8 +5,7 @@ import com.its.gotcha.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,12 +15,20 @@ public class MainController {
     @Autowired
     private MainService mainService;
     @GetMapping("/main")
-    public String main (Model model){
+    public String findALl (Model model){
         List<MenuDTO>menuDTOList=mainService.findAll();
         model.addAttribute("menuList",menuDTOList);
         System.out.println("MainController.main");
         System.out.println("model = " + model);
         return "/mainPages/main";
+    }
+    @GetMapping("/location")
+    public String location(@RequestParam("c_location") String c_location, Model model){
+        List<MenuDTO>locationList=mainService.findLocation(c_location);
+        model.addAttribute("locationList",locationList);
+        System.out.println("MainController.location");
+        System.out.println("c_location = " + c_location + ", model = " + model);
+        return "mainPages/location";
     }
 
 }

@@ -17,4 +17,11 @@ public class MainService {
         System.out.println("MainService.findAll");
         return menuDTOList;
     }
+
+    public List<MenuDTO> findLocation(String c_location) {
+        List<MenuDTO>locationList=mainRepository.findLocation(c_location);
+        System.out.println("MainService.findLocation");
+        System.out.println("c_location = " + c_location);
+        return locationList;
+    }
 }

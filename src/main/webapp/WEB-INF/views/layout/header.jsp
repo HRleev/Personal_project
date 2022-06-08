@@ -115,7 +115,7 @@
 <header>
     <div class="nav">
         <div class="btn-group m-2" role="group" aria-label="First group">
-            <a href="/" class="btn btn-outline-secondary">Home</a> &nbsp;
+            <a href="/main/main" class="btn btn-outline-secondary">Home</a> &nbsp;
             <c:if test="${sessionScope.loginMemberId ==null}">
                 <a href="/member/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
             </c:if>

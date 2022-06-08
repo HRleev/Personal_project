@@ -1,4 +1,5 @@
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -11,10 +12,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
+        @font-face {
+            font-family: 'SuncheonB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
             color: #999;
             background: #f5f5f5;
-            font-family: 'Varela Round', sans-serif;
+            font-family: 'SuncheonB';
+            /*font-family: 'Varela Round', sans-serif;*/
         }
 
         .form-control {
@@ -33,6 +41,7 @@
         }
 
         .login-form form {
+
             color: #434343;
             border-radius: 1px;
             margin-bottom: 15px;
