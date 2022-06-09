@@ -128,7 +128,7 @@
             <c:if test="${sessionScope.loginMemberId !=null}">
                 <a href="/member/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginCompanyId !=null}">
+            <c:if test="${sessionScope.loginCompanyName !=null}">
                 <a href="/company/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginMemberId eq 'admin'}">
@@ -137,7 +137,7 @@
             <c:if test="${sessionScope.loginMemberId eq 'admin'}">
                 <a href="/company/findAll" class="btn btn-outline-secondary">기업회원목록</a>&nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginCompanyId != null}">
+            <c:if test="${sessionScope.loginCompanyName!= null}">
                 <a href="/company/detail" class="btn btn-outline-secondary">myPage</a>&nbsp;
             </c:if>
         </div>
@@ -146,7 +146,7 @@
 
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
-            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+            <img src="../../../resources/img/산타로.PNG" style="width:100%">
             <div class="text">Caption Text</div>
 
 
@@ -154,13 +154,13 @@
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
-            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+            <img src="../../../resources/img/아쿠아.PNG" style="width:100%">
             <div class="text">Caption Two</div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 3</div>
-            <img src="https://pbs.twimg.com/media/EgmdnC2VgAAJ9LA.jpg" style="width:100%">
+            <img src="../../../resources/img/풍부한.PNG" style="width:100%">
             <div class="text">Caption Three</div>
         </div>
 

@@ -17,4 +17,7 @@
     <select id="findById" resultType="menu">
         select *from menu_table where companyName=#{companyName}
     </select>
+    <delete id="delete" parameterType="String">
+        delete from menu_table where companyName=#{companyName}
+    </delete>
 </mapper>

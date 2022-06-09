@@ -26,17 +26,17 @@
             <th>삭제</th>
 
         </tr>
-        <c:forEach items="${companyList}" var="member">
+        <c:forEach items="${companyList}" var="companyList">
         <tr>
-            <td>${company.c_id}</td>
-            <td>${company.companyId}</td>
-            <td>${company.companyPassword}</td>
-            <td>${company.companyName}</td>
-            <td>${company.companyEmail}</td>
-            <td>${company.companyMobile}</td>
-            <td>${company.companyLocation}</td>
+            <td>${companyList.c_id}</td>
+            <td>${companyList.companyId}</td>
+            <td>${companyList.companyPassword}</td>
+            <td>${companyList.companyName}</td>
+            <td>${companyList.companyEmail}</td>
+            <td>${companyList.companyMobile}</td>
+            <td>${companyList.companyLocation}</td>
 
-            <td><a href="/company/delete?c_id=${company.c_id}">삭제</a></td>
+            <td><a href="/company/delete?c_id=${companyList.c_id}">삭제</a></td>
         </tr>
         </c:forEach>
 

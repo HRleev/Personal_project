@@ -14,7 +14,11 @@ public class MenuRepository {
         sql.insert("Menu.save",menuDTO);
     }
 
-    public MenuDTO findById(MenuDTO menuDTO) {
-        return sql.selectOne("Menu.findById",menuDTO);
+    public MenuDTO findById(String companyName) {
+        return sql.selectOne("Menu.findById",companyName);
+    }
+
+    public int delete(String companyName) {
+        return sql.delete("Menu.delete",companyName);
     }
 }

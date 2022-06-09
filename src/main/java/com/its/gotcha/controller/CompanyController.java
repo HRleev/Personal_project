@@ -1,7 +1,9 @@
 package com.its.gotcha.controller;
 
 import com.its.gotcha.dto.CompanyDTO;
+import com.its.gotcha.dto.MenuDTO;
 import com.its.gotcha.service.CompanyService;
+import com.its.gotcha.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ import java.util.List;
 public class CompanyController {
     @Autowired
     private CompanyService companyService;
+    @Autowired
+    private MenuService menuService;
 
 
     @GetMapping("/save")
@@ -25,7 +29,7 @@ public class CompanyController {
     @PostMapping("/save")
     public String saveForm(@ModelAttribute CompanyDTO companyDTO) {
         companyService.save(companyDTO);
-        return "/mainPages/main";
+        return "mainPages/main";
     }
     @GetMapping("/login")
     public String login(){
@@ -38,9 +42,9 @@ public class CompanyController {
         System.out.println(loginCompany);
         if(loginCompany!=null){
             model.addAttribute(companyDTO);
-            session.setAttribute("loginCompanyId",loginCompany.getCompanyId());
+            session.setAttribute("loginCompanyName" ,loginCompany.getCompanyName());
             session.setAttribute("loginId",loginCompany.getC_id());
-            return "mainPages/main";
+            return "redirect:/main/main";
         }
         else {
             return "mainPages/login";
@@ -48,29 +52,34 @@ public class CompanyController {
     }@GetMapping("/logout")
     public String logout(HttpSession session){
         session.invalidate();
-        return "mainPages/main";
+        return "/mainPages/main";
     }
     @GetMapping("/findAll")
     public String findAll(Model model){
         List<CompanyDTO>companyDTOList=companyService.findAll();
         model.addAttribute("companyList",companyDTOList);
-        return "companyPages/companyList";
+        return "/companyPages/companyList";
     }
     @PostMapping("/delete")
-    public String delete(@RequestParam("c_id")long c_id,Model model){
+    public String delete(@RequestParam("c_id")long c_id){
         boolean deleteResult=companyService.delete(c_id);
         if(deleteResult){
+            System.out.println("CompanyController.delete");
+            System.out.println("c_id = " + c_id);
             return "redirect:/company/findAll";
         }else{
-            return "companyPages/companyList";
+            return "/companyPages/companyList";
         }
     }
     @GetMapping("/detail")
-    public String findById( Model model,HttpSession session){
+    public String findById(Model model, HttpSession session){
         long checkId=(Long) session.getAttribute("loginId");
+        String companyName=(String)session.getAttribute("loginCompanyName");
         CompanyDTO companyDTO =companyService.findById(checkId);
+        MenuDTO menu =menuService.findById(companyName);
         model.addAttribute("company",companyDTO);
-        return "companyPages/myPage";
+        model.addAttribute("menu",menu);
+        return "/companyPages/myPage";
     }
 
 }

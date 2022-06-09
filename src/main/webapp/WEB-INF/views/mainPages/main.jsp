@@ -54,7 +54,7 @@
         </tr>
         <c:forEach items="${menuList}" var="menuList">
             <tr>
-                <td><a href="/menu/detail?companyName=${companyName}"> ${menuList.companyName}</a></td>
+                <td><a href="/menu/detail?companyName=${menuList.companyName}"> ${menuList.companyName}</a></td>
                 <td>${menuList.c_menu}</td>
                 <td>${menuList.c_introduction}</td>
 <%--                <td>${menuList.c_menuFile}</td>--%>
@@ -64,7 +64,5 @@
         </c:forEach>
     </table>
 </div>
-<h2 style="text-align:center">Product Card</h2>
-
 </body>
 </html>

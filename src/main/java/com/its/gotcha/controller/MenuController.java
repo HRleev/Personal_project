@@ -6,10 +6,7 @@ import com.its.gotcha.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -29,13 +26,22 @@ public class MenuController {
     @PostMapping("/save")
     public String saveForm(@ModelAttribute MenuDTO menuDTO) throws IOException {
         menuService.save(menuDTO);
-        return "redirect:/main/main";
+        return "redirect:/company/detail";
     }
     @GetMapping("/detail")
-    public String findById(@ModelAttribute MenuDTO menuDTO,Model model){
-        MenuDTO menu=menuService.findById(menuDTO);
+    public String findById(@RequestParam ("companyName") String companyName, Model model){
+        MenuDTO menu=menuService.findById(companyName);
         model.addAttribute("menu",menu);
-        return "/companyPages/detail";
+        return "companyPages/detail";
+    }
+    @GetMapping("/delete")
+    public String delete(@RequestParam("companyName")String companyName){
+        boolean deleteResult =menuService.delete(companyName);
+        if(deleteResult){
+            return "redirect:/company/detail";
+        }else {
+            return "companyPages/myPage";
+        }
     }
 
 }

@@ -26,7 +26,16 @@ public class MenuService {
         menuRepository.save(menuDTO);
     }
 
-    public MenuDTO findById(MenuDTO menuDTO) {
-        return menuRepository.findById(menuDTO);
+    public MenuDTO findById(String companyName) {
+        return menuRepository.findById(companyName);
+    }
+
+    public boolean delete(String companyName) {
+        int deleteResult =menuRepository.delete(companyName);
+        if(deleteResult>0){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

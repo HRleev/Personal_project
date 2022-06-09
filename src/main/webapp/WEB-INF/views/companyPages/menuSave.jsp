@@ -32,8 +32,8 @@
                        placeholder="지역"></div>
             <div class="mb-3">
                 <label for="companyName">companyName</label>
-                <input type="text" class="form-control" name="companyName"value="${sessionScope.loginCompanyId}" id="companyName"
-                       placeholder="${sessionScope.loginCompanyId}" readonly></div>
+                <input type="text" class="form-control" name="companyName"value="${sessionScope.loginCompanyName}" id="companyName"
+                       placeholder="${sessionScope.loginCompanyName}" readonly></div>
             <div class="mb-3">
                 <label for="c_introduction">소개</label>
                 <textarea class="form-control" rows="5" name="c_introduction" id="c_introduction"

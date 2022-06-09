@@ -18,8 +18,6 @@ public class MainController {
     public String findALl (Model model){
         List<MenuDTO>menuDTOList=mainService.findAll();
         model.addAttribute("menuList",menuDTOList);
-        System.out.println("MainController.main");
-        System.out.println("model = " + model);
         return "/mainPages/main";
     }
     @GetMapping("/location")
