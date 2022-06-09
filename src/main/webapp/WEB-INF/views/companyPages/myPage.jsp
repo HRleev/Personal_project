@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                     <td><a href="/menu/delete?companyName=${menu.companyName}">삭제</a></td>
-                    <%--                    <td><a href="/menu/update?companyName=${menu.companyName}">수정</a></td>--%>
+
             </table>
         </div>
     </div>

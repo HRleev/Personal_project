@@ -51,7 +51,8 @@
 
                 <tr>
                     <td>예약내역</td>
-                    <td>${boot.c_introduction}</td>
+                    <td>${boot.c_introduction}
+                    </td>
                 </tr>
                 <tr>
                     <td>사진</td>
@@ -59,8 +60,6 @@
                 </tr>
                 <tr>
                     <td><a href="/menu/delete?companyName=${menu.companyName}">삭제</a></td>
-                    <%--                    <td><a href="/menu/update?companyName=${menu.companyName}">수정</a></td>--%>
-
             </table>
         </div>
     </div>

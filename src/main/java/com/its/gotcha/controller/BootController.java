@@ -30,12 +30,5 @@ public class BootController {
         bootService.save(bootDTO);
         return "memberPages/myPage";
     }
-//    @GetMapping("/findAll")
-//    public String findAll(HttpSession session, Model model){
-//        String loginCompanyName=(String)session.getAttribute("loginCompanyName");
-//        List<BootDTO>bootDTOList=bootService.findAll(loginCompanyName);
-//        model.addAttribute("bootList",bootDTOList);
-//        return "redirect:/company/findAll";
-//     }
 
 }

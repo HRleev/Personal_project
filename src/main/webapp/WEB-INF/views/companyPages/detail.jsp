@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         .wrapper {
             max-width: 1200px;
@@ -34,6 +35,11 @@
         .ton {
             margin-top: 30px;
             margin-left: 20px;
+        }
+        .icon{
+            margin-top: 10px;
+            width: 60px;
+            height: 60px;
         }
     </style>
 </head>
@@ -59,6 +65,24 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="restaurant-features">
+        <span class="feature-item">
+            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_parking.svg" class="icon">
+            <span class="label">주차 가능</span>
+        </span>
+        <span class="feature-item">
+            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_group_seat.svg" class="icon">
+            <span class="label">단체석</span>
+        </span>
+        <span class="feature-item">
+            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_sommelier.svg" class="icon">
+            <span class="label">전문 소믈리에</span>
+        </span>
+        <span class="feature-item">
+            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_rent.svg" class="icon">
+            <span class="label">대관 가능</span>
+        </span>
     </div>
 </div>
 </body>
