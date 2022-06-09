@@ -43,10 +43,10 @@
 
         /* Slideshow container */
         .slideshow-container {
-            max-width: 1000px;
+            /*max-width: 1000px;*/
             margin-top: 10px;
-            margin-left: 25%;
 
+            /*margin-left: 25%;*/
         }
 
         /* Caption text */
@@ -116,33 +116,37 @@
     <div class="nav">
         <div class="btn-group m-2" role="group" aria-label="First group">
             <a href="/main/main" class="btn btn-outline-secondary">Home</a> &nbsp;
-            <c:if test="${sessionScope.loginMemberId ==null}">
+            <c:if test="${sessionScope.loginMemberName ==null}">
                 <a href="/member/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginMemberId ==null}">
+            <c:if test="${sessionScope.loginMemberName ==null}">
                 <a href="/company/save" class="btn btn-outline-secondary">기업회원가입</a> &nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginMemberId ==null}">
+            <c:if test="${sessionScope.loginMemberName ==null}">
                 <a href="/member/login" class="btn btn-outline-secondary">로그인</a> &nbsp;&nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginMemberId !=null}">
+            <c:if test="${sessionScope.loginMemberName !=null}">
                 <a href="/member/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginCompanyName !=null}">
                 <a href="/company/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+            <c:if test="${sessionScope.loginMemberName eq 'admin'}">
                 <a href="/member/findAll" class="btn btn-outline-secondary">개인회원목록</a>&nbsp;
             </c:if>
-            <c:if test="${sessionScope.loginMemberId eq 'admin'}">
+            <c:if test="${sessionScope.loginMemberName eq 'admin'}">
                 <a href="/company/findAll" class="btn btn-outline-secondary">기업회원목록</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginCompanyName!= null}">
                 <a href="/company/detail" class="btn btn-outline-secondary">myPage</a>&nbsp;
             </c:if>
+            <c:if test="${sessionScope.loginMemberName!= null}">
+                <a href="/member/detail" class="btn btn-outline-secondary">myPage</a>&nbsp;
+            </c:if>
         </div>
     </div>
-    <div class="slideshow-container">
+    <div class="container" style="width: 1000px" >
+    <div class="slideshow-container" >
 
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
@@ -164,7 +168,7 @@
             <div class="text">Caption Three</div>
         </div>
 
-    </div>
+    </div></div>
     <br>
 
     <div style="text-align:center">

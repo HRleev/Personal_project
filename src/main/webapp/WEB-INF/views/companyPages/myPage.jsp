@@ -21,7 +21,6 @@
     <div class="row">
         <div class="col">
             <table class="table table-striped">
-
                 <tr>
                     <td>companyId</td>
                     <td>${company.companyId}</td>
@@ -54,7 +53,6 @@
         </div>
         <div class="col">
             <table class="table table-striped">
-
                 <tr>
                     <td>메뉴소개</td>
                     <td>${menu.c_introduction}</td>
@@ -65,8 +63,27 @@
                 </tr>
                 <tr>
                     <td><a href="/menu/delete?companyName=${menu.companyName}">삭제</a></td>
-<%--                    <td><a href="/menu/update?companyName=${menu.companyName}">수정</a></td>--%>
-
+                    <%--                    <td><a href="/menu/update?companyName=${menu.companyName}">수정</a></td>--%>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <tr>
+                    <th>b_id</th>
+                    <th>memberName</th>
+                    <th>bootStrength</th>
+                    <th>bootDate</th>
+                </tr>
+                <c:forEach items="${bootList}" var="bootList">
+                    <tr>
+                        <td>${bootList.b_id}</td>
+                        <td>${bootList.memberName}</td>
+                        <td>${bootList.bootStrength}</td>
+                        <td>${bootList.bootDate}</td>
+                    </tr>
+                </c:forEach>
             </table>
         </div>
     </div>

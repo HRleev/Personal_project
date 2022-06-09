@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +14,6 @@ public class BootDTO {
     String companyName;
     String memberName;
     int bootStrength;
-    Timestamp bootDate;
+    Date bootDate;
 }
 

@@ -1,6 +1,8 @@
 package com.its.gotcha.controller;
 
+import com.its.gotcha.dto.BootDTO;
 import com.its.gotcha.dto.MemberDTO;
+import com.its.gotcha.service.BootService;
 import com.its.gotcha.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import java.util.List;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private BootService bootService;
 
 
     @GetMapping("/save")
@@ -36,9 +40,9 @@ public class MemberController {
         MemberDTO loginMember =memberService.login(memberDTO);
         if(loginMember != null){
             model.addAttribute("loginResult",loginMember);
-            session.setAttribute("loginMemberId",loginMember.getMemberId());
+            session.setAttribute("loginMemberName",loginMember.getMemberName());
             session.setAttribute("loginId",loginMember.getM_id());
-            return "mainPages/main";
+            return "redirect:/main/main";
         }
         else {
             return "mainPages/login";
@@ -63,5 +67,15 @@ public class MemberController {
         }else{
             return "memberPages/memberList";
         }
+    }
+    @GetMapping("/detail")
+    public String findById(Model model,HttpSession session){
+        long checkId=(long)session.getAttribute("loginId");
+//        String memberName=(String)session.getAttribute("loginMemberId");
+        MemberDTO memberDTO=memberService.findById(checkId);
+//        BootDTO boot=bootService.findById(memberName);
+        model.addAttribute("member",memberDTO);
+//        model.addAttribute("boot",bootDTO);
+        return "/memberPages/myPage";
     }
 }

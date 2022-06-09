@@ -1,7 +1,9 @@
 package com.its.gotcha.controller;
 
+import com.its.gotcha.dto.BootDTO;
 import com.its.gotcha.dto.CompanyDTO;
 import com.its.gotcha.dto.MenuDTO;
+import com.its.gotcha.service.BootService;
 import com.its.gotcha.service.CompanyService;
 import com.its.gotcha.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,8 @@ public class CompanyController {
     private CompanyService companyService;
     @Autowired
     private MenuService menuService;
-
+    @Autowired
+    private BootService bootService;
 
     @GetMapping("/save")
     public String save() {
@@ -31,54 +34,59 @@ public class CompanyController {
         companyService.save(companyDTO);
         return "mainPages/main";
     }
+
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "mainPages/login";
     }
+
     @PostMapping("/login")
-    public String loginForm(@ModelAttribute CompanyDTO companyDTO , Model model, HttpSession session){
+    public String loginForm(@ModelAttribute CompanyDTO companyDTO, Model model, HttpSession session) {
         CompanyDTO loginCompany = companyService.login(companyDTO);
-        System.out.println("CompanyController.loginForm");
-        System.out.println(loginCompany);
-        if(loginCompany!=null){
+        if (loginCompany != null) {
             model.addAttribute(companyDTO);
-            session.setAttribute("loginCompanyName" ,loginCompany.getCompanyName());
-            session.setAttribute("loginId",loginCompany.getC_id());
+            session.setAttribute("loginCompanyName", loginCompany.getCompanyName());
+            session.setAttribute("loginId", loginCompany.getC_id());
             return "redirect:/main/main";
-        }
-        else {
+        } else {
             return "mainPages/login";
         }
-    }@GetMapping("/logout")
-    public String logout(HttpSession session){
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
         session.invalidate();
         return "/mainPages/main";
     }
+
     @GetMapping("/findAll")
-    public String findAll(Model model){
-        List<CompanyDTO>companyDTOList=companyService.findAll();
-        model.addAttribute("companyList",companyDTOList);
+    public String findAll(Model model) {
+        List<CompanyDTO> companyDTOList = companyService.findAll();
+        model.addAttribute("companyList", companyDTOList);
+        System.out.println("CompanyController.findAll");
         return "/companyPages/companyList";
     }
+
     @PostMapping("/delete")
-    public String delete(@RequestParam("c_id")long c_id){
-        boolean deleteResult=companyService.delete(c_id);
-        if(deleteResult){
-            System.out.println("CompanyController.delete");
-            System.out.println("c_id = " + c_id);
+    public String delete(@RequestParam("c_id") long c_id) {
+        boolean deleteResult = companyService.delete(c_id);
+        if (deleteResult) {
             return "redirect:/company/findAll";
-        }else{
+        } else {
             return "/companyPages/companyList";
         }
     }
+
     @GetMapping("/detail")
-    public String findById(Model model, HttpSession session){
-        long checkId=(Long) session.getAttribute("loginId");
-        String companyName=(String)session.getAttribute("loginCompanyName");
-        CompanyDTO companyDTO =companyService.findById(checkId);
-        MenuDTO menu =menuService.findById(companyName);
-        model.addAttribute("company",companyDTO);
-        model.addAttribute("menu",menu);
+    public String findById(Model model, HttpSession session) {
+        long checkId = (Long) session.getAttribute("loginId");
+        String companyName = (String) session.getAttribute("loginCompanyName");
+        CompanyDTO companyDTO = companyService.findById(checkId);
+        MenuDTO menu = menuService.findById(companyName);
+        List<BootDTO> bootDTOList = bootService.findAll(companyName);
+        model.addAttribute("company", companyDTO);
+        model.addAttribute("menu", menu);
+        model.addAttribute("bootList",bootDTOList);
         return "/companyPages/myPage";
     }
 

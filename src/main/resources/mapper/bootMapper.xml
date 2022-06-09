@@ -4,5 +4,11 @@
 
 
 <mapper namespace="Boot">
-
+<insert id="save" parameterType="boot">
+    insert into boot_table (companyName,memberName,bootStrength,bootDate)
+        values (#{companyName},#{memberName},#{bootStrength},#{bootDate})
+</insert>
+    <select id="findAll" resultType="boot">
+        select *from boot_table where companyName=#{companyName}
+    </select>
 </mapper>

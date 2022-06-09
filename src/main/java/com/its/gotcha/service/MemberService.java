@@ -34,4 +34,7 @@ public class MemberService {
             return false;
         }
     }
+    public MemberDTO findById(long checkId) {
+        return memberRepository.findById(checkId);
+    }
 }
