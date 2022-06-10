@@ -11,4 +11,7 @@
     <select id="findAll" resultType="boot">
         select *from boot_table where companyName=#{companyName}
     </select>
+    <select id="findById" resultType="boot">
+        select * from boot_table where memberName=#{memberName}
+    </select>
 </mapper>

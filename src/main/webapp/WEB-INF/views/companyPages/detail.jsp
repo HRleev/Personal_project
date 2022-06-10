@@ -38,8 +38,9 @@
         }
         .icon{
             margin-top: 10px;
-            width: 60px;
+            width: 70px;
             height: 60px;
+            margin-left: 7px;
         }
     </style>
 </head>
@@ -56,9 +57,9 @@
                 <div class="col">
                     <div class="ton">
                         <div class="row">
-                            <h2>${menu.companyName}</h2></div>
+                            <h2>${menu.companyName}</h2><br></div>
                         <div class="row">
-                            <h2>${menu.c_introduction}</h2></div>
+                            <h2>${menu.c_introduction}</h2><br></div>
                         <div class="row">
                             <h2>${menu.c_location}</h2></div>
                     </div>
@@ -84,6 +85,36 @@
             <span class="label">대관 가능</span>
         </span>
     </div>
+<c:if test="${sessionScope.loginMemberName eq boot.memberName}">
+<form action="/review/save" method="post">
+    <div class="form-group">
+        <label>리뷰</label>
+        <textarea class="form-control" name="reviewContents" id="review" row="3"></textarea>
+    </div>
+    <input type="hidden" name="memberName" id="memberName" value="${boot.memberName}">
+    <button type="submit" class="btn btn-primary" id="review-btn">리뷰작성</button>
+</form>
+</c:if>
+    <div id="comment-list">
+        <table class="table table-striped">
+            <tr>
+                <th>리뷰번호</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성시간</th>
+            </tr>
+            <c:forEach items="${commentList}" var="comment">
+                <tr>
+                    <td>${comment.c_id}</td>
+                    <td>${comment.memberId}</td>
+                    <td>${comment.commentContents}</td>
+                    <td>${comment.commentCreatedDate}</td>
+                        <%--                <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"--%>
+                        <%--                                    value="${comment.commentCreatedDate}"></fmt:formatDate></td>--%>
+                </tr>
+            </c:forEach>
+        </table>
+</div>
 </div>
 </body>
 </html>

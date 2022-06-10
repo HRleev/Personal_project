@@ -59,9 +59,11 @@ public class MemberController {
         model.addAttribute("memberList",memberDTOList);
         return "memberPages/memberList";
     }
-    @PostMapping("/delete")
-    public String delete(@RequestParam("m_id")long m_id, Model model){
+    @GetMapping("/delete")
+    public String delete(@RequestParam("m_id")long m_id){
         boolean deleteResult=memberService.delete(m_id);
+        System.out.println("MemberController.delete");
+        System.out.println("m_id = " + m_id);
         if(deleteResult){
             return "redirect:/member/findAll";
         }else{

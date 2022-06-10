@@ -28,6 +28,8 @@ public class MemberService {
 
     public boolean delete(long m_id) {
         int deleteResult=memberRepository.delete(m_id);
+        System.out.println("MemberService.delete");
+        System.out.println("m_id = " + m_id);
         if(deleteResult >0){
             return true;
         }else{

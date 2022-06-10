@@ -20,6 +20,10 @@ public class BootService {
         return bootDTOList;
     }
 
+    public BootDTO findById(String memberName) {
+        return bootRepository.findById(memberName);
+    }
+
 //    public BootDTO findById(String memberName) {
 //    }
 }

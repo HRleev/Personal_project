@@ -9,19 +9,14 @@
         values (#{memberId}, #{memberPassword}, #{memberName}, #{memberEmail}, #{memberMobile}, #{memberLocation})
     </insert>
     <select id="login" resultType="member">
-        select *
-        from member_table
-        where memberId = #{memberId}
-          and memberPassword = #{memberPassword}
+        select * from member_table where memberId = #{memberId}
+             and memberPassword = #{memberPassword}
     </select>
     <select id="findAll" resultType="member">
-        select *
-        from member_table
+        select * from member_table
     </select>
     <delete id="delete" parameterType="long">
-        delete
-        from member_table
-        where m_id#{m_id}
+        delete from member_table where m_id=#{m_id}
     </delete>
     <select id="findById" resultType="member">
         select *from member_table where m_id=#{m_id}

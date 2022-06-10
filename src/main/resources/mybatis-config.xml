@@ -7,5 +7,6 @@
         <typeAlias type="com.its.gotcha.dto.CompanyDTO" alias="company" />
         <typeAlias type="com.its.gotcha.dto.MenuDTO" alias="menu" />
         <typeAlias type="com.its.gotcha.dto.BootDTO" alias="boot" />
+        <typeAlias type="com.its.gotcha.dto.ReviewDTO" alias="review" />
     </typeAliases>
 </configuration>

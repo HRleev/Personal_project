@@ -1,7 +1,9 @@
 package com.its.gotcha.controller;
 
-import com.its.gotcha.dto.CompanyDTO;
+import com.its.gotcha.dto.BootDTO;
 import com.its.gotcha.dto.MenuDTO;
+import com.its.gotcha.service.BootService;
+import com.its.gotcha.service.MemberService;
 import com.its.gotcha.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ import java.io.IOException;
 public class MenuController {
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private BootService bootService;
 
     @GetMapping("save")
     public String save(HttpSession session){
@@ -29,9 +33,13 @@ public class MenuController {
         return "redirect:/company/detail";
     }
     @GetMapping("/detail")
-    public String findById(@RequestParam ("companyName") String companyName, Model model){
+    public String findById(@RequestParam ("companyName") String companyName,
+                           Model model,HttpSession session){
+        String memberName=(String)session.getAttribute("loginMemberName");
+        BootDTO bootDTO=bootService.findById(memberName);
         MenuDTO menu=menuService.findById(companyName);
         model.addAttribute("menu",menu);
+        model.addAttribute("boot",bootDTO);
         return "companyPages/detail";
     }
     @GetMapping("/delete")

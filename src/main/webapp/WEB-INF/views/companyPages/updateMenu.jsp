@@ -1,30 +1,23 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 2022-06-07
-  Time: 오후 4:46
+  Date: 2022-06-10
+  Time: 오전 9:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>menuSave</title>
-    <style>
-        body {
-            padding-top: 70px;
-            padding-bottom: 30px;
-        }
-    </style>
+    <title>updateMenu</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-<body>
 <article>
     <div class="container" role="main">
-        <form action="/menu/save" method="post" enctype="multipart/form-data">
+        <form action="/menu/update" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="c_menu">시그니쳐</label>
                 <input type="text" class="form-control" name="c_menu" id="c_menu"
@@ -51,7 +44,5 @@
 
     </div>
 </article>
-
-
 </body>
 </html>
