@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -47,19 +48,25 @@
             </table>
         </div>
         <div class="col">
-            <table class="table table-striped">
+            <div class="table table-striped">
+                <table class="table">
+                    <tr>
+                        <th>예약번호</th>
+                        <th>상호명</th>
+                        <th>예약인원</th>
+                        <th>날짜</th>
 
-                <tr>
-                    <td>예약내역</td>
-                    <td>${boot.c_introduction}
-                    </td>
-                </tr>
-                <tr>
-                    <td>사진</td>
-                    <td><img src="${pageContext.request.contextPath}/upload/${menu.c_menuFileName}"></td>
-                </tr>
-                <tr>
-                    <td><a href="/menu/delete?companyName=${menu.companyName}">삭제</a></td>
+                    </tr>
+                    <c:forEach items="${bootList}" var="bootList">
+                    <tr>
+                        <td>${bootList.b_id}</td>
+                        <td>${bootList.companyName}</td>
+                        <td>${bootList.bootStrength}</td>
+                        <td>${bootList.bootDate}</td>
+                    </tr>
+                    </c:forEach>
+
+            </div>
             </table>
         </div>
     </div>

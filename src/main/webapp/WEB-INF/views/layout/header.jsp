@@ -102,7 +102,6 @@
                 font-size: 11px
             }
         }
-
         .nav {
             background-color: #ced4da;
         }
@@ -142,22 +141,23 @@
             </c:if>
         </div>
     </div>
-    <div class="container" style="width: 1000px" >
-    <div class="slideshow-container" >
+    <div class="container" style="width: 1000px">
+        <div class="slideshow-container">
 
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img src="../../../resources/img/산타로.PNG" style="width:100%">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img src="../../../resources/img/산타로.PNG" style="width:100%" height="40%">
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img src="../../../resources/img/아쿠아.PNG" style="width:100%" height="40%">
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img src="../../../resources/img/풍부한.PNG" style="width:100%" height="40%">
+            </div>
         </div>
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img src="../../../resources/img/아쿠아.PNG" style="width:100%">
-        </div>
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="../../../resources/img/풍부한.PNG" style="width:100%">
-        </div>
-    </div></div>
+    </div>
     <br>
 
     <div style="text-align:center">

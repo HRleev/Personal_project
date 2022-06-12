@@ -5,7 +5,13 @@
 
 <mapper namespace="Review">
     <insert id="save" parameterType="review">
-        insert into review_table (memberName,reviewContents)
-                values (#{memberName},#{reviewContents})
+        insert into review_table (companyName,memberName,reviewContents)
+        values (#{companyName},#{memberName},#{reviewContents})
     </insert>
+    <select id="findAll" resultType="review">
+        select * from review_table where companyName=#{companyName}
+    </select>
+    <update id="update" parameterType="review">
+        update review_table set reviewContents=#{reviewContents} where companyName=#{companyName} and memberName=#{memberName}
+    </update>
 </mapper>

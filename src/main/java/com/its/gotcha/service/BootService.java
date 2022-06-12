@@ -24,6 +24,4 @@ public class BootService {
         return bootRepository.findById(memberName);
     }
 
-//    public BootDTO findById(String memberName) {
-//    }
 }

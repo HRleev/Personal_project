@@ -50,8 +50,8 @@ public class MemberController {
     }
     @GetMapping("/logout")
     public String logout(HttpSession session){
-       session.invalidate();
-       return "mainPages/main";
+        session.invalidate();
+        return "mainPages/main";
     }
     @GetMapping("/findAll")
     public String findAll(Model model){
@@ -73,11 +73,10 @@ public class MemberController {
     @GetMapping("/detail")
     public String findById(Model model,HttpSession session){
         long checkId=(long)session.getAttribute("loginId");
-//        String memberName=(String)session.getAttribute("loginMemberId");
+        String memberName=(String)session.getAttribute("loginMemberId");
         MemberDTO memberDTO=memberService.findById(checkId);
-//        BootDTO boot=bootService.findById(memberName);
+
         model.addAttribute("member",memberDTO);
-//        model.addAttribute("boot",bootDTO);
         return "/memberPages/myPage";
     }
 }

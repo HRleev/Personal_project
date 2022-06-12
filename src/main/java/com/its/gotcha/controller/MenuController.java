@@ -2,9 +2,11 @@ package com.its.gotcha.controller;
 
 import com.its.gotcha.dto.BootDTO;
 import com.its.gotcha.dto.MenuDTO;
+import com.its.gotcha.dto.ReviewDTO;
 import com.its.gotcha.service.BootService;
 import com.its.gotcha.service.MemberService;
 import com.its.gotcha.service.MenuService;
+import com.its.gotcha.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/menu")
@@ -20,6 +23,8 @@ public class MenuController {
     private MenuService menuService;
     @Autowired
     private BootService bootService;
+    @Autowired
+    private ReviewService reviewService;
 
     @GetMapping("save")
     public String save(HttpSession session){
@@ -38,8 +43,13 @@ public class MenuController {
         String memberName=(String)session.getAttribute("loginMemberName");
         BootDTO bootDTO=bootService.findById(memberName);
         MenuDTO menu=menuService.findById(companyName);
+        ReviewDTO reviewDTO=new ReviewDTO();
+        reviewDTO.setCompanyName(companyName);
+        model.addAttribute("review",reviewService.findAll(reviewDTO));
         model.addAttribute("menu",menu);
         model.addAttribute("boot",bootDTO);
+        System.out.println(reviewDTO);
+
         return "companyPages/detail";
     }
     @GetMapping("/delete")

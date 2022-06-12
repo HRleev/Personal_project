@@ -12,8 +12,8 @@ import java.security.Timestamp;
 @AllArgsConstructor
 public class ReviewDTO {
     long r_id;
-    long c_id;
+    String companyName;
     String memberName;
     String reviewContents;
-    Timestamp reviewTime;
+    String reviewTime;
 }

@@ -170,7 +170,6 @@
                 $(this).parent().find(".label-txt").removeClass('label-active');
             };
         });
-
     });
 </script>
 </html>

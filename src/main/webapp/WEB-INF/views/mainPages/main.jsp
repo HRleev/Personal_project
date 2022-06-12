@@ -48,7 +48,7 @@
             <th>companyName</th>
             <th>c_menu</th>
             <th>c_introduction</th>
-<%--            <th>c_menuFile</th>--%>
+            <%--            <th>c_menuFile</th>--%>
             <th>c_location</th>
             <th>예약</th>
         </tr>
@@ -57,7 +57,7 @@
                 <td><a href="/menu/detail?companyName=${menuList.companyName}"> ${menuList.companyName}</a></td>
                 <td>${menuList.c_menu}</td>
                 <td>${menuList.c_introduction}</td>
-<%--                <td>${menuList.c_menuFile}</td>--%>
+                    <%--                <td>${menuList.c_menuFile}</td>--%>
                 <td>${menuList.c_location}</td>
                 <td><a href="/boot/save?companyName=${menuList.companyName}">예약</a></td>
             </tr>
