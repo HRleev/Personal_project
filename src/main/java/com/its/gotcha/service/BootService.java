@@ -31,7 +31,7 @@ public class BootService {
     }
 
     public String idCheck(String memberName) {
-        String checkResult=bootRepository.idCheck(memberName);
+        List<BootDTO> checkResult=bootRepository.idCheck(memberName);
         if(checkResult==null){
             return "ok";
         }else{

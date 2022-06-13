@@ -158,6 +158,7 @@ const b_check=()=>{
         console.log("함수호출");
         const memberName='${sessionScope.loginMemberName}';
         const input=document.getElementById("review");
+        const btn=document.getElementById("review-btn");
         $.ajax({
             type: "post",
             url: "/boot/idCheck",
@@ -165,13 +166,11 @@ const b_check=()=>{
             dataType: "text",
             success:function (result){
                 if(result =="no"){
-                    console.log(result);
+                    $(btn).attr('disabled', 'disabled');
                     $(input).attr('disabled', 'disabled');
                 }else{
                     input.disabled=false;
                 }
-            },error:function (result){
-                console.log("뭔가 문제가 있다!!")
             }
         });
     }
