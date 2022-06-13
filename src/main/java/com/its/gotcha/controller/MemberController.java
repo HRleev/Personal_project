@@ -62,8 +62,6 @@ public class MemberController {
     @GetMapping("/delete")
     public String delete(@RequestParam("m_id")long m_id){
         boolean deleteResult=memberService.delete(m_id);
-        System.out.println("MemberController.delete");
-        System.out.println("m_id = " + m_id);
         if(deleteResult){
             return "redirect:/member/findAll";
         }else{
@@ -73,10 +71,11 @@ public class MemberController {
     @GetMapping("/detail")
     public String findById(Model model,HttpSession session){
         long checkId=(long)session.getAttribute("loginId");
-        String memberName=(String)session.getAttribute("loginMemberId");
+        String memberName=(String)session.getAttribute("loginMemberName");
         MemberDTO memberDTO=memberService.findById(checkId);
-
         model.addAttribute("member",memberDTO);
+        List<BootDTO>bootDTOList =bootService.findAllMember(memberName);
+        model.addAttribute("bootList",bootDTOList);
         return "/memberPages/myPage";
     }
 }

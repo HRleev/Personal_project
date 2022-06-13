@@ -67,7 +67,7 @@ public class CompanyController {
         return "/companyPages/companyList";
     }
 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(@RequestParam("c_id") long c_id) {
         boolean deleteResult = companyService.delete(c_id);
         if (deleteResult) {

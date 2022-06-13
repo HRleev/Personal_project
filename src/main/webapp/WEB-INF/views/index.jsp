@@ -9,16 +9,32 @@
 <html>
 <head>
     <title>Hello</title>
+    <style>
+        .img-size {
+            position: relative;
+            width: 100%;
+            height: 600px;
+        }
+        .img-center {
+            text-align: center;
+            position: absolute;
+            top: 0;
+            right: -200%;
+            bottom: 0;
+            left: -200%;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            margin-top: 250px;
+        }
+    </style>
 </head>
 <body>
-<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
-<h2>오셨는가</h2>
-<button class=btn-primary onclick=location.href="/member/save">개인회원가입</button>
-<button class=btn-primary onclick=location.href="/company/save">기업회원가입</button>
-<button class=btn-primary onclick=location.href="/main/main">Main</button>
-<button class=btn-primary onclick=location.href="/member/login">개인회원login</button>
-<button class=btn-primary onclick=location.href="/company/login">기업회원login</button>
-
-
+<div class="img-size">
+    <div class="img-center">
+    <a href="/main/main"><img src="../../resources/img/gat.PNG" ></a>
+    </div>
+</div>
 </body>
 </html>

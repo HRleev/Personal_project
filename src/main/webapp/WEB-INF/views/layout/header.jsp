@@ -103,7 +103,12 @@
             }
         }
         .nav {
-            background-color: #ced4da;
+            font-family: 'SuncheonB';
+            font-size: 20px;
+        }
+        a{
+            size: 20px;
+            color: #0d0d0d;
         }
     </style>
 </head>
@@ -111,33 +116,33 @@
 <header>
     <div class="nav">
         <div class="btn-group m-2" role="group" aria-label="First group">
-            <a href="/main/main" class="btn btn-outline-secondary">Home</a> &nbsp;
+            <a href="/main/main" ><img src="../../../resources/img/gat.PNG" style="width: 120px; height: 60px"></a>&nbsp;&nbsp;
             <c:if test="${sessionScope.loginMemberName==null}">
-                <a href="/member/save" class="btn btn-outline-secondary">개인회원가입</a> &nbsp;
+                <a href="/member/save" >개인회원가입</a> &nbsp;
             </c:if>
             <c:if test="${sessionScope.loginCompanyName==null}">
-                <a href="/company/save" class="btn btn-outline-secondary">기업회원가입</a> &nbsp;
+                <a href="/company/save" >기업회원가입</a> &nbsp;
             </c:if>
             <c:if test="${sessionScope.loginId==null}">
-                <a href="/member/login" class="btn btn-outline-secondary">로그인</a> &nbsp;&nbsp;
+                <a href="/member/login" >로그인</a> &nbsp;&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginMemberName !=null}">
-                <a href="/member/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
+                <a href="/member/logout">로그아웃</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginCompanyName !=null}">
-                <a href="/company/logout" class="btn btn-outline-secondary">로그아웃</a>&nbsp;
+                <a href="/company/logout">로그아웃</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginMemberName eq 'admin'}">
-                <a href="/member/findAll" class="btn btn-outline-secondary">개인회원목록</a>&nbsp;
+                <a href="/member/findAll">개인회원목록</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginMemberName eq 'admin'}">
-                <a href="/company/findAll" class="btn btn-outline-secondary">기업회원목록</a>&nbsp;
+                <a href="/company/findAll">기업회원목록</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginCompanyName!= null}">
-                <a href="/company/detail" class="btn btn-outline-secondary">myPage</a>&nbsp;
+                <a href="/company/detail">myPage</a>&nbsp;
             </c:if>
             <c:if test="${sessionScope.loginMemberName!= null}">
-                <a href="/member/detail" class="btn btn-outline-secondary">myPage</a>&nbsp;
+                <a href="/member/detail">myPage</a>&nbsp;
             </c:if>
         </div>
     </div>

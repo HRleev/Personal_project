@@ -16,16 +16,14 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @PostMapping("/save")
-    public String save(@ModelAttribute ReviewDTO reviewDTO, Model model){
-        List<ReviewDTO> reviewDTOList=reviewService.findAll(reviewDTO);
+    public @ResponseBody List<ReviewDTO> save(@ModelAttribute ReviewDTO reviewDTO){
         reviewService.save(reviewDTO);
-        System.out.println("reviewDTO = " + reviewDTO + ", model = " + model);
-        model.addAttribute("review",reviewDTOList);
-        return "companyPages/detail";
+        List<ReviewDTO> reviewDTOList=reviewService.findAll(reviewDTO);
+        return reviewDTOList;
     }
-    @PostMapping("update")
-    public String update(@ModelAttribute ReviewDTO reviewDTO){
-        reviewService.update(reviewDTO);
-        return "redirect:/review/save";
-    }
+//    @PostMapping("update")
+//    public String update(@ModelAttribute ReviewDTO reviewDTO){
+//        reviewService.update(reviewDTO);
+//        return "redirect:/review/save";
+//    }
 }

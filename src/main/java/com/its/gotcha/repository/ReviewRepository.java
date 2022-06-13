@@ -18,8 +18,6 @@ public class ReviewRepository {
 
     public List<ReviewDTO> findAll(ReviewDTO reviewDTO) {
         List<ReviewDTO> ret= sql.selectList("Review.findAll",reviewDTO);
-
-        System.out.println(ret);
         return ret;
     }
 

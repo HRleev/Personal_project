@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <style>
         @font-face {
             font-family: 'SuncheonB';
@@ -18,6 +18,7 @@
             font-weight: normal;
             font-style: normal;
         }
+
         body {
             color: #999;
             background: #f5f5f5;
@@ -123,46 +124,42 @@
 </head>
 <body>
 <div class="login-form">
-<button class="btn_show">개인회원</button>
-<button class="btn_hide">기업회원</button>
-<div class="personalLogin-form">
-    <form action="/member/login" method="post">
-        <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-        <h4 class="modal-title">개인회원로그인</h4>
-        <div class="form-group">
-            <input type="text" class="form-control" name="memberId" placeholder="Id" required="required">
+    <div class="row">
+        <div class="col">
+            <h4 class="btn_show">개인회원</h4>
         </div>
-        <div class="form-group">
-            <input type="password" class="form-control" name="memberPassword" placeholder="Password"
-                   required="required">
+        <div class="col">
+            <h4 class="btn_hide">기업회원</h4>
         </div>
-        <%--        <div class="form-group small clearfix">--%>
-        <%--            <label class="checkbox-inline"><input type="checkbox"> Remember me</label>--%>
-        <%--            <a href="#" class="forgot-link">Forgot Password?</a>--%>
-        <%--        </div>--%>
-        <input type="submit" class="btn btn-primary btn-block btn-lg" value="로그인">
-    </form>
-    <%--    <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>--%>
-</div>
-<div class="companyLogin-form" style="display: none">
-    <form action="/company/login" method="post">
-        <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-        <h4 class="modal-title">기업회원 로그인</h4>
-        <div class="form-group">
-            <input type="text" class="form-control" name="companyId" placeholder="Id" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" name="companyPassword" placeholder="Password"
-                   required="required">
-        </div>
-<%--        <div class="form-group small clearfix">--%>
-<%--            <label class="checkbox-inline"><input type="checkbox"> Remember me</label>--%>
-<%--            <a href="#" class="forgot-link">Forgot Password?</a>--%>
-<%--        </div>--%>
-        <input type="submit" class="btn btn-primary btn-block btn-lg" value="로그인">
-    </form>
-    <%--    <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>--%>
-</div>
+    </div>
+    <div class="personalLogin-form">
+        <form action="/member/login" method="post">
+            <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+            <h4 class="modal-title">개인회원로그인</h4>
+            <div class="form-group">
+                <input type="text" class="form-control" name="memberId" placeholder="Id" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="memberPassword" placeholder="Password"
+                       required="required">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg" value="로그인">
+        </form>
+    </div>
+    <div class="companyLogin-form" style="display: none">
+        <form action="/company/login" method="post">
+            <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+            <h4 class="modal-title">기업회원 로그인</h4>
+            <div class="form-group">
+                <input type="text" class="form-control" name="companyId" placeholder="Id" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="companyPassword" placeholder="Password"
+                       required="required">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg" value="로그인">
+        </form>
+    </div>
 </div>
 </body>
 <script>

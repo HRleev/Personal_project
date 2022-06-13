@@ -25,4 +25,8 @@ public class BootRepository {
     public BootDTO findById(String memberName) {
         return sql.selectOne("Boot.findById",memberName);
     }
+
+    public List<BootDTO> findAllMember(String memberName) {
+        return sql.selectList("Boot.findAllMember",memberName);
+    }
 }

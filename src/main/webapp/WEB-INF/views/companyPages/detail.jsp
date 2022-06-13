@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>detail</title>
+    <div id="parah"></div>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +28,6 @@
             min-height: 100%;
             box-shadow: 0 0 20px rgba(0, 0, 0, .05);
         }
-
         .guide-img {
             margin-top: 30px;
             width: 600px;
@@ -38,7 +38,8 @@
             margin-top: 30px;
             margin-left: 20px;
         }
-        .icon{
+
+        .icon {
             margin-top: 10px;
             width: 70px;
             height: 60px;
@@ -75,11 +76,13 @@
             <span class="label">주차 가능</span>
         </span>
         <span class="feature-item">
-            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_group_seat.svg" class="icon">
+            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_group_seat.svg"
+                 class="icon">
             <span class="label">단체석</span>
         </span>
         <span class="feature-item">
-            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_sommelier.svg" class="icon">
+            <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_sommelier.svg"
+                 class="icon">
             <span class="label">전문 소믈리에</span>
         </span>
         <span class="feature-item">
@@ -88,16 +91,13 @@
         </span>
     </div>
     <c:if test="${sessionScope.loginMemberName eq boot.memberName}">
-        <form action="/review/save" method="post">
             <div class="form-group">
                 <label>리뷰</label>
-                <input type="text" name="companyName" id="companyName" value="${menu.companyName}" readonly>
-                <textarea class="form-control" name="reviewContents" id="review" row="3"></textarea>
+                <input type="text" name="companyName" id="companyName" value="${menu.companyName}" style="width: 300px; margin-bottom: 10px" readonly>
+                <textarea class="form-control" name="reviewContents" id="review" row="3"style="margin-bottom: 10px"></textarea>
             </div>
-            <input type="hidden" name="memberName" id="memberName" value="${boot.memberName}">
-            <button onclick="update()" class="btn btn-primary" id="review-btn">리뷰작성</button>
-
-        </form>
+            <input type="hidden" name="memberName" id="memberName" value="${boot.memberName}" >
+            <button onclick="updateForm()" class="btn btn-primary" id="review-btn" style="margin-bottom: 10px">리뷰작성</button>
     </c:if>
     <div id="comment-list">
         <table class="table table-striped">
@@ -106,8 +106,7 @@
                 <th>작성자</th>
                 <th>내용</th>
                 <th>작성시간</th>
-                <th></th>
-                <th></th>
+                <th>삭제</th>
             </tr>
             <c:forEach items="${review}" var="review">
                 <tr>
@@ -115,12 +114,7 @@
                     <td>${review.memberName}</td>
                     <td>${review.reviewContents}</td>
                     <td>${review.reviewTime}</td>
-                        <%--                    <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"--%>
-                        <%--                                        value="${review.reviewTime}" /></td>--%>
-                    <c:if test="${sessionScope.loginMemberName eq comment.memberName}">
-                        <%--                        <td><input type="hidden" id="reviews" name="reviewContents" disabled >--%>
-                        <td><button onclick="updateForm()" class="btn btn-primary" >리뷰수정</button></td>
-                    </c:if>
+                    <td><button type="button" class="btn btn-danger" id="deleteBtn">삭제</button></td>
                 </tr>
             </c:forEach>
         </table>
@@ -128,43 +122,42 @@
 </div>
 </body>
 <script>
-    // function updateForm(){
-    //     $('#reviews').removeAttr(disabled);
-    // }
+    const updateForm = () => {
 
-    const update=()=>{
-
-
-        const memberName=${sessionScope.loginMemberName};
-        const companyName=${menu.companyName};
-        const rContents =document.getElementById("review").value;
+        console.log("함수호출");
+        const memberName ='${sessionScope.loginMemberName}';
+        const companyName ='${menu.companyName}';
+        const rContents = document.getElementById("review").value;
         $.ajax({
-            type:"post",
-            url:"/review/save",
-            data:{
-                "memberName":memberName,
-                "companyName":companyName,
-                "reviewContents":rContents,
+            type: "post",
+            url: "/review/save",
+            data: {
+                "memberName": memberName,
+                "companyName": companyName,
+                "reviewContents": rContents,
             },
-            dataType:"json",
-            success:function (result){
-                let output="<table class='table table-striped'><tr>";
-                output +="<th>리뷰번호</th>";
-                output +="<th>작성자</th>";
-                output +="<th>내용</th>";
-                output +="<th>작성시간</th>";
-                for(let i in result){
-                    output +="<tr>";
-                    output +="<td>"+ result[i].r_id+"<td>";
-                    output +="<td>"+ result[i].memberName+"<td>";
-                    output +="<td>"+ result[i].reviewContents+"<td>";
-                    output +="<td>"+ moment(result[i].reviewTime).format("YYYY-MM-DD HH:mm:ss")+"</td>";
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                let output = "<table class='table table-striped'><tr>";
+                output += "<th>리뷰번호</th>";
+                output += "<th>작성자</th>";
+                output += "<th>내용</th>";
+                output += "<th>작성시간</th>";
+                for (let i in result) {
+                    output += "<tr>";
+                    output += "<td>" + result[i].r_id + "</td>";
+                    output += "<td>" + result[i].memberName + "</td>";
+                    output += "<td>" + result[i].reviewContents + "</td>";
+                    output += "<td>" + moment(result[i].reviewTime).format("YYYY-MM-DD HH:mm:ss") + "</td></tr>";
                 }
-                output+="</table>";
-                document.getElementById('comment-list').innerHTML=output;
-                document.getElementById('reviewContents').value='';
+                output += "</table>";
+                document.getElementById('comment-list').innerHTML = output;
+                document.getElementById('review').value = '';
             }
         });
     }
+
+
 </script>
 </html>

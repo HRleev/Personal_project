@@ -17,10 +17,7 @@ public class ReviewService {
     }
 
     public List<ReviewDTO> findAll(ReviewDTO reviewDTO) {
-        return reviewRepository.findAll(reviewDTO);
-    }
-
-    public void update(ReviewDTO reviewDTO) {
-        reviewRepository.update(reviewDTO);
+        List<ReviewDTO>reviewDTOList=reviewRepository.findAll(reviewDTO);
+        return reviewDTOList;
     }
 }
