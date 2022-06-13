@@ -41,15 +41,13 @@ public class MenuController {
     public String findById(@RequestParam ("companyName") String companyName,
                            Model model,HttpSession session){
         String memberName=(String)session.getAttribute("loginMemberName");
-        BootDTO bootDTO=bootService.findById(memberName);
+        List<BootDTO>bootDTOList =bootService.findAllMember(memberName);
         MenuDTO menu=menuService.findById(companyName);
         ReviewDTO reviewDTO=new ReviewDTO();
         reviewDTO.setCompanyName(companyName);
         model.addAttribute("review",reviewService.findAll(reviewDTO));
         model.addAttribute("menu",menu);
-        model.addAttribute("boot",bootDTO);
-        System.out.println(reviewDTO);
-
+        model.addAttribute("boot",bootDTOList);
         return "companyPages/detail";
     }
     @GetMapping("/delete")

@@ -17,4 +17,7 @@
     <select id="findAllMember" resultType="boot">
         select *from boot_table where memberName=#{memberName}
     </select>
+    <select id="idCheck" parameterType="String" resultType="String">
+        select memberName from boot_table where memberName=#{memberName}
+    </select>
 </mapper>

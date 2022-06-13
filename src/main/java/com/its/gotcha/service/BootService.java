@@ -24,8 +24,18 @@ public class BootService {
         return bootRepository.findById(memberName);
     }
 
+
     public List<BootDTO> findAllMember(String memberName) {
         List<BootDTO> bootDTOList=bootRepository.findAllMember(memberName);
         return bootDTOList;
+    }
+
+    public String idCheck(String memberName) {
+        String checkResult=bootRepository.idCheck(memberName);
+        if(checkResult==null){
+            return "ok";
+        }else{
+            return "no";
+        }
     }
 }

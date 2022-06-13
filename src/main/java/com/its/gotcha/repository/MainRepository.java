@@ -13,13 +13,10 @@ public class MainRepository {
     private SqlSessionTemplate sql;
 
     public List<MenuDTO> findAll() {
-        System.out.println("MainRepository.findAll");
         return  sql.selectList("Menu.findAll");
     }
 
     public List<MenuDTO> findLocation(String c_location) {
-        System.out.println("MainRepository.findLocation");
-        System.out.println("c_location = " + c_location);
         return sql.selectList("Menu.findLocation",c_location);
     }
 }

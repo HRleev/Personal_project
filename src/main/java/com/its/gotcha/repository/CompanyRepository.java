@@ -17,8 +17,7 @@ public class CompanyRepository {
 
     public CompanyDTO login(CompanyDTO companyDTO) {
         CompanyDTO loginResult=sql.selectOne("Company.login",companyDTO);
-        System.out.println("CompanyRepository.login");
-        System.out.println("companyDTO = " + companyDTO);
+
         return loginResult;
     }
 

@@ -24,8 +24,6 @@ public class MainController {
     public String location(@RequestParam("c_location") String c_location, Model model){
         List<MenuDTO>locationList=mainService.findLocation(c_location);
         model.addAttribute("locationList",locationList);
-        System.out.println("MainController.location");
-        System.out.println("c_location = " + c_location + ", model = " + model);
         return "mainPages/location";
     }
 

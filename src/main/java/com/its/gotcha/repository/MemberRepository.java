@@ -25,8 +25,6 @@ public class MemberRepository {
     }
 
     public int delete(long m_id) {
-        System.out.println("MemberRepository.delete");
-        System.out.println("m_id = " + m_id);
         return sql.delete("Member.delete",m_id);
     }
 

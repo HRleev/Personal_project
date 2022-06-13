@@ -21,9 +21,4 @@ public class ReviewController {
         List<ReviewDTO> reviewDTOList=reviewService.findAll(reviewDTO);
         return reviewDTOList;
     }
-//    @PostMapping("update")
-//    public String update(@ModelAttribute ReviewDTO reviewDTO){
-//        reviewService.update(reviewDTO);
-//        return "redirect:/review/save";
-//    }
 }

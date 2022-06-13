@@ -28,7 +28,14 @@ public class BootController {
     @PostMapping("/save")
     public String saveForm(@ModelAttribute BootDTO bootDTO, Model model){
         bootService.save(bootDTO);
-        return "memberPages/myPage";
+        return "redirect:/member/detail";
+    }
+    @PostMapping("/idCheck")
+    public @ResponseBody String idCheck(@RequestParam("memberName")String memberName){
+        String checkResult=bootService.idCheck(memberName);
+        System.out.println("BootController.idCheck");
+        System.out.println("checkResult"+checkResult);
+        return checkResult;
     }
 
 }

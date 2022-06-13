@@ -90,15 +90,17 @@
             <span class="label">대관 가능</span>
         </span>
     </div>
-    <c:if test="${sessionScope.loginMemberName eq boot.memberName}">
+<%--    <c:forEach items="${boot}" var="boot">--%>
+<%--<c:if test="${sessionScope.loginMemberName eq boot.memberName}">--%>
             <div class="form-group">
                 <label>리뷰</label>
                 <input type="text" name="companyName" id="companyName" value="${menu.companyName}" style="width: 300px; margin-bottom: 10px" readonly>
-                <textarea class="form-control" name="reviewContents" id="review" row="3"style="margin-bottom: 10px"></textarea>
+                <textarea class="form-control" onblur="b_check()" name="reviewContents" id="review" row="3"style="margin-bottom: 10px"></textarea>
             </div>
-            <input type="hidden" name="memberName" id="memberName" value="${boot.memberName}" >
+            <input type="hidden" name="memberName" id="memberName" value="${sessionScope.loginMemberName}" >
             <button onclick="updateForm()" class="btn btn-primary" id="review-btn" style="margin-bottom: 10px">리뷰작성</button>
-    </c:if>
+<%--</c:if>--%>
+<%--</c:forEach>--%>
     <div id="comment-list">
         <table class="table table-striped">
             <tr>
@@ -106,7 +108,6 @@
                 <th>작성자</th>
                 <th>내용</th>
                 <th>작성시간</th>
-                <th>삭제</th>
             </tr>
             <c:forEach items="${review}" var="review">
                 <tr>
@@ -114,7 +115,6 @@
                     <td>${review.memberName}</td>
                     <td>${review.reviewContents}</td>
                     <td>${review.reviewTime}</td>
-                    <td><button type="button" class="btn btn-danger" id="deleteBtn">삭제</button></td>
                 </tr>
             </c:forEach>
         </table>
@@ -123,8 +123,6 @@
 </body>
 <script>
     const updateForm = () => {
-
-        console.log("함수호출");
         const memberName ='${sessionScope.loginMemberName}';
         const companyName ='${menu.companyName}';
         const rContents = document.getElementById("review").value;
@@ -138,7 +136,6 @@
             },
             dataType: "json",
             success: function (result) {
-                console.log(result);
                 let output = "<table class='table table-striped'><tr>";
                 output += "<th>리뷰번호</th>";
                 output += "<th>작성자</th>";
@@ -157,7 +154,27 @@
             }
         });
     }
-
+const b_check=()=>{
+        console.log("함수호출");
+        const memberName='${sessionScope.loginMemberName}';
+        const input=document.getElementById("review");
+        $.ajax({
+            type: "post",
+            url: "/boot/idCheck",
+            data: {"memberName":memberName},
+            dataType: "text",
+            success:function (result){
+                if(result =="no"){
+                    console.log(result);
+                    $(input).attr('disabled', 'disabled');
+                }else{
+                    input.disabled=false;
+                }
+            },error:function (result){
+                console.log("뭔가 문제가 있다!!")
+            }
+        });
+    }
 
 </script>
 </html>

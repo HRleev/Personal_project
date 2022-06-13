@@ -63,7 +63,6 @@ public class CompanyController {
     public String findAll(Model model) {
         List<CompanyDTO> companyDTOList = companyService.findAll();
         model.addAttribute("companyList", companyDTOList);
-        System.out.println("CompanyController.findAll");
         return "/companyPages/companyList";
     }
 

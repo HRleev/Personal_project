@@ -29,4 +29,8 @@ public class BootRepository {
     public List<BootDTO> findAllMember(String memberName) {
         return sql.selectList("Boot.findAllMember",memberName);
     }
+
+    public String idCheck(String memberName) {
+        return sql.selectOne("Boot.idCheck",memberName);
+    }
 }
