@@ -21,7 +21,7 @@ public class MainRepository {
         return sql.selectList("Menu.findLocation",c_location);
     }
 
-    public List<CompanyDTO> lank() {
-        return sql.selectList("Company.lank");
+    public List<MenuDTO> lank() {
+        return sql.selectList("Menu.lank");
     }
 }

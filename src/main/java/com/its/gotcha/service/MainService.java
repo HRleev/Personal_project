@@ -23,8 +23,8 @@ public class MainService {
         return locationList;
     }
 
-        public List<CompanyDTO> lank() {
-        List<CompanyDTO> companyDTOList=mainRepository.lank();
-        return companyDTOList;
+        public List<MenuDTO> lank() {
+        List<MenuDTO> menuDTOList=mainRepository.lank();
+        return menuDTOList;
     }
 }

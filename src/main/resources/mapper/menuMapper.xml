@@ -20,4 +20,7 @@
     <delete id="delete" parameterType="String">
         delete from menu_table where companyName=#{companyName}
     </delete>
+    <select id="lank" resultType="menu">
+        select * from menu_table order by bootCount desc;
+    </select>
 </mapper>

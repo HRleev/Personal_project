@@ -29,8 +29,9 @@ public class MainController {
     }
     @GetMapping("/lank")
     public String lank(Model model){
-        List<CompanyDTO>companyDTOList=mainService.lank();
-        model.addAttribute("lank",companyDTOList);
+        List<MenuDTO>menuDTOList=mainService.lank();
+        model.addAttribute("lank",menuDTOList);
+        System.out.println("menuDTOList"+menuDTOList);
         return "/mainPages/lank";
     }
 }

@@ -17,4 +17,5 @@ MenuDTO {
     MultipartFile c_menuFile;
     String c_menuFileName;
     String c_location;
+    int bootCount;
 }
