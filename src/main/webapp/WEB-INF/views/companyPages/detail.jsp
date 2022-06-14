@@ -28,6 +28,7 @@
             min-height: 100%;
             box-shadow: 0 0 20px rgba(0, 0, 0, .05);
         }
+
         .guide-img {
             margin-top: 30px;
             width: 600px;
@@ -90,17 +91,15 @@
             <span class="label">대관 가능</span>
         </span>
     </div>
-<%--    <c:forEach items="${boot}" var="boot">--%>
-<%--<c:if test="${sessionScope.loginMemberName eq boot.memberName}">--%>
-            <div class="form-group">
-                <label>리뷰</label>
-                <input type="text" name="companyName" id="companyName" value="${menu.companyName}" style="width: 300px; margin-bottom: 10px" readonly>
-                <textarea class="form-control" onblur="b_check()" name="reviewContents" id="review" row="3"style="margin-bottom: 10px"></textarea>
-            </div>
-            <input type="hidden" name="memberName" id="memberName" value="${sessionScope.loginMemberName}" >
-            <button onclick="updateForm()" class="btn btn-primary" id="review-btn" style="margin-bottom: 10px">리뷰작성</button>
-<%--</c:if>--%>
-<%--</c:forEach>--%>
+    <div class="form-group" style="margin-top: 10px">
+        <label>리뷰</label>
+        <input type="text" name="companyName" id="companyName" value="${menu.companyName}"
+               style="width: 300px; margin-bottom: 10px" readonly>
+        <textarea class="form-control" onblur="b_check()" name="reviewContents" id="review" row="3"
+                  style="margin-bottom: 10px"></textarea>
+    </div>
+    <input type="hidden" name="memberName" id="memberName" value="${sessionScope.loginMemberName}">
+    <button onclick="updateForm()" class="btn btn-primary" id="review-btn" style="margin-bottom: 10px">리뷰작성</button>
     <div id="comment-list">
         <table class="table table-striped">
             <tr>
@@ -123,8 +122,8 @@
 </body>
 <script>
     const updateForm = () => {
-        const memberName ='${sessionScope.loginMemberName}';
-        const companyName ='${menu.companyName}';
+        const memberName = '${sessionScope.loginMemberName}';
+        const companyName = '${menu.companyName}';
         const rContents = document.getElementById("review").value;
         $.ajax({
             type: "post",
@@ -154,26 +153,30 @@
             }
         });
     }
-const b_check=()=>{
+    const b_check = () => {
         console.log("함수호출");
-        const memberName='${sessionScope.loginMemberName}';
-        const input=document.getElementById("review");
-        const btn=document.getElementById("review-btn");
+        const memberName = '${sessionScope.loginMemberName}';
+        const companyName = '${menu.companyName}';
+        const input = document.getElementById("review");
+        const btn = document.getElementById("review-btn");
         $.ajax({
             type: "post",
             url: "/boot/idCheck",
-            data: {"memberName":memberName},
+            data: {
+                "memberName": memberName,
+                "companyName": companyName,
+            },
             dataType: "text",
-            success:function (result){
-                if(result =="no"){
+            success: function (result) {
+                if (result == "no") {
+                    alert("예약자만 리뷰 할 수 있습니다.");
                     $(btn).attr('disabled', 'disabled');
                     $(input).attr('disabled', 'disabled');
-                }else{
-                    input.disabled=false;
+                } else {
+                    input.disabled = false;
                 }
             }
         });
     }
-
 </script>
 </html>

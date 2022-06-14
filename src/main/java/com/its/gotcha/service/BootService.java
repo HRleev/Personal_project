@@ -30,12 +30,12 @@ public class BootService {
         return bootDTOList;
     }
 
-    public String idCheck(String memberName) {
-        List<BootDTO> checkResult=bootRepository.idCheck(memberName);
-        if(checkResult==null){
-            return "ok";
-        }else{
+    public String idCheck(BootDTO bootDTO) {
+        List<BootDTO> checkResult=bootRepository.idCheck(bootDTO);
+        if(checkResult.size()==0){
             return "no";
+        }else{
+            return "ok";
         }
     }
 }

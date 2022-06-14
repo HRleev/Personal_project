@@ -61,7 +61,6 @@
             <table class="table table-striped">
                 <tr>
                     <td>메뉴소개</td>
-
                     <td>${menu.c_introduction}</td>
                 </tr>
                 <tr>

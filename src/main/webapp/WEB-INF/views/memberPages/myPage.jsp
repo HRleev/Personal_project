@@ -55,7 +55,6 @@
                         <th>상호명</th>
                         <th>예약인원</th>
                         <th>날짜</th>
-
                     </tr>
                     <c:forEach items="${bootList}" var="bootList">
                     <tr>
@@ -65,7 +64,6 @@
                         <td>${bootList.bootDate}</td>
                     </tr>
                     </c:forEach>
-
             </div>
             </table>
         </div>

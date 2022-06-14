@@ -18,6 +18,6 @@
         select *from boot_table where memberName=#{memberName}
     </select>
     <select id="idCheck" parameterType="String" resultType="boot">
-        select memberName from boot_table where memberName=#{memberName} and companyName=#{companyName}
+        select * from boot_table where memberName=#{memberName} and companyName=#{companyName}
     </select>
 </mapper>

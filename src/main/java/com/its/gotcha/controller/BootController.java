@@ -9,9 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-import java.util.List;
-
 @Controller
 @RequestMapping("/boot")
 public class BootController {
@@ -26,15 +23,13 @@ public class BootController {
         return "mainPages/boot";
     }
     @PostMapping("/save")
-    public String saveForm(@ModelAttribute BootDTO bootDTO, Model model){
+    public String saveForm(@ModelAttribute BootDTO bootDTO){
         bootService.save(bootDTO);
         return "redirect:/member/detail";
     }
     @PostMapping("/idCheck")
-    public @ResponseBody String idCheck(@RequestParam("memberName")String memberName){
-        String checkResult=bootService.idCheck(memberName);
-        System.out.println("BootController.idCheck");
-        System.out.println("checkResult"+checkResult);
+    public @ResponseBody String idCheck(@ModelAttribute BootDTO bootDTO){
+        String checkResult =bootService.idCheck(bootDTO);
         return checkResult;
     }
 

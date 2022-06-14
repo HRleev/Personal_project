@@ -30,7 +30,8 @@ public class BootRepository {
         return sql.selectList("Boot.findAllMember",memberName);
     }
 
-    public List<BootDTO> idCheck(String memberName) {
-        return sql.selectList("Boot.idCheck",memberName);
+    public List<BootDTO> idCheck(BootDTO bootDTO) {
+       List<BootDTO>checkResult=sql.selectList("Boot.idCheck",bootDTO);
+        return checkResult;
     }
 }

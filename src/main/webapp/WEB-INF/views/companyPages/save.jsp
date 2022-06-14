@@ -160,10 +160,8 @@
 </body>
 <script>
     const duplicateCheck=()=>{
-
     }
     const regular =()=>{
-
     }
 </script>
 <script>
