@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
@@ -55,6 +56,7 @@
                         <th>상호명</th>
                         <th>예약인원</th>
                         <th>날짜</th>
+                        <th>예약변경</th>
                     </tr>
                     <c:forEach items="${bootList}" var="bootList">
                     <tr>
@@ -62,12 +64,54 @@
                         <td>${bootList.companyName}</td>
                         <td>${bootList.bootStrength}</td>
                         <td>${bootList.bootDate}</td>
+                        <td><button class="btn_show">선택</button> </td>
                     </tr>
                     </c:forEach>
             </div>
             </table>
+            <article>
+                <div class="update_boot" role="main" style="display: none" >
+                    <form action="/boot/save" method="post">
+                        <div class="mb-3">
+                            <label for="companyName">companyName</label>
+                            <input type="text" class="form-control" name="companyName"
+<%--                                   value="${menu.companyName}"--%>
+                                   id="companyName"
+<%--                                   placeholder="${menu.companyName}" --%>
+                                   readonly></div>
+                        <div class="mb-3">
+                            <label for="memberName">memberName</label>
+                            <input type="text" class="form-control" name="memberName" value="${sessionScope.loginMemberName}"
+                                   id="memberName" placeholder="${sessionScope.loginMemberName}" readonly></div>
+                        <div class="mb-3">
+                            <label for="datepiker">날짜선택</label>
+                            <input type="date" class="form-control" name="bootDate" id="datepiker"></div>
+                        <div class="mb-3">
+                            <label for="bootStrength">인원</label>
+                            <input type="text" class="form-control" name="bootStrength" id="bootStrength" ></div>
+                        <div>
+                            <input type="submit" class="btn btn-sm btn-primary" value="예약변경">
+                        </div>
+                    </form>
+                </div>
+            </article>
+            </div>
         </div>
     </div>
 </div>
 </body>
+<script>
+    $(function (){
+        $('.btn_show').click(function (){
+            $('.update_boot').show();
+            $('.btn btn-sm btn-primary').hide();
+            });
+    });
+
+    $(function () {
+        $("#datepiker").datepicker({
+            dateFormat :'yy-mm-dd'
+        });
+    });
+</script>
 </html>

@@ -14,10 +14,11 @@
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        img{
+        img {
             width: 250px;
             height: 250px;
         }
+
     </style>
 </head>
 <body>
@@ -74,23 +75,25 @@
         </div>
     </div>
     <div class="row">
-            <table class="table table-striped">
+        <table class="table table-striped">
+            <tr>
+                <th>b_id</th>
+                <th>memberName</th>
+                <th>bootStrength</th>
+                <th>bootDate</th>
+            </tr>
+            <c:forEach items="${bootList}" var="bootList">
                 <tr>
-                    <th>b_id</th>
-                    <th>memberName</th>
-                    <th>bootStrength</th>
-                    <th>bootDate</th>
+                    <td>${bootList.b_id}</td>
+                    <td>${bootList.memberName}</td>
+                    <td>${bootList.bootStrength}</td>
+                    <td>${bootList.bootDate}</td>
                 </tr>
-                <c:forEach items="${bootList}" var="bootList">
-                    <tr>
-                        <td>${bootList.b_id}</td>
-                        <td>${bootList.memberName}</td>
-                        <td>${bootList.bootStrength}</td>
-                        <td>${bootList.bootDate}</td>
-                    </tr>
-                </c:forEach>
-            </table>
+            </c:forEach>
+        </table>
+
     </div>
 </div>
 </body>
+
 </html>
