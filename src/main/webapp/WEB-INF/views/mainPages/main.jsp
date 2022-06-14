@@ -19,13 +19,39 @@
             /*margin-left: 300px;*/
             text-align: center;
         }
+        /*.card {*/
+        /*    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+        /*    max-width: 300px;*/
+        /*    margin: auto;*/
+        /*    text-align: center;*/
+        /*    font-family: arial;*/
+        /*}*/
+
+        /*.price {*/
+        /*    color: grey;*/
+        /*    font-size: 22px;*/
+        /*}*/
+
+        /*.card button {*/
+        /*    border: none;*/
+        /*    outline: 0;*/
+        /*    padding: 12px;*/
+        /*    color: white;*/
+        /*    background-color: #000;*/
+        /*    text-align: center;*/
+        /*    cursor: pointer;*/
+        /*    width: 100%;*/
+        /*    font-size: 18px;*/
+        /*}*/
+
+        /*.card button:hover {*/
+        /*    opacity: 0.7;*/
+        /*}*/
     </style>
 </head>
 <body>
 
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-
-
 <div class="icon">
 
     <a href="/main/location?c_location=청담">
@@ -48,7 +74,6 @@
             <th>companyName</th>
             <th>c_menu</th>
             <th>c_introduction</th>
-            <%--<th>c_menuFile</th>--%>
             <th>c_location</th>
             <th>예약</th>
         </tr>
@@ -57,12 +82,23 @@
                 <td><a href="/menu/detail?companyName=${menuList.companyName}"> ${menuList.companyName}</a></td>
                 <td>${menuList.c_menu}</td>
                 <td>${menuList.c_introduction}</td>
-                    <%--<td>${menuList.c_menuFile}</td>--%>
                 <td>${menuList.c_location}</td>
                 <td><a href="/boot/save?companyName=${menuList.companyName}">예약</a></td>
             </tr>
         </c:forEach>
     </table>
 </div>
+
+<%--<h2 style="text-align:center">Product Card</h2>--%>
+<%--<c:forEach items="${menuList}" var="menuList">--%>
+<%--    <div class="card">--%>
+<%--        <img src="${pageContext.request.contextPath}/upload/${menuList.c_menuFileName}" alt="Denim Jeans" style="width:100%">--%>
+<%--        <h1>${menuList.companyName}</h1>--%>
+<%--        <p class="price">${menuList.c_introduction}</p>--%>
+<%--        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>--%>
+<%--        <p><button>Add to Cart</button></p>--%>
+<%--    </div>--%>
+<%--</c:forEach>--%>
+
 </body>
 </html>

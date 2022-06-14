@@ -141,24 +141,26 @@
             <c:if test="${sessionScope.loginCompanyName!= null}">
                 <a href="/company/detail">myPage</a>&nbsp;
             </c:if>
+
             <c:if test="${sessionScope.loginMemberName!= null}">
                 <a href="/member/detail">myPage</a>&nbsp;
             </c:if>
+            <a href="/boot/lank">Lanking</a>&nbsp;
         </div>
     </div>
     <div class="container" style="width: 1000px">
         <div class="slideshow-container">
 
             <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
+                <div class="numbertext"></div>
                 <img src="../../../resources/img/산타로.PNG" style="width:100%" height="40%">
             </div>
             <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
+                <div class="numbertext"></div>
                 <img src="../../../resources/img/아쿠아.PNG" style="width:100%" height="40%">
             </div>
             <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
+                <div class="numbertext"></div>
                 <img src="../../../resources/img/풍부한.PNG" style="width:100%" height="40%">
             </div>
         </div>

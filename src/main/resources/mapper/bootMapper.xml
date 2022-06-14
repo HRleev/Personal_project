@@ -20,4 +20,10 @@
     <select id="idCheck" parameterType="String" resultType="boot">
         select * from boot_table where memberName=#{memberName} and companyName=#{companyName}
     </select>
+    <update id="update" parameterType="boot">
+        update boot_table set bootDate=#{bootDate}, bootStrength=#{bootStrength} where b_id=#{b_id}
+    </update>
+    <update id="lank">
+
+    </update>
 </mapper>

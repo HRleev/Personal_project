@@ -15,6 +15,7 @@ public class BootRepository {
     @Autowired
     private SqlSessionTemplate sql;
     public void save(BootDTO bootDTO) {
+        sql.update("Boot.lank",bootDTO);
         sql.insert("Boot.save",bootDTO);
     }
 
@@ -34,4 +35,12 @@ public class BootRepository {
        List<BootDTO>checkResult=sql.selectList("Boot.idCheck",bootDTO);
         return checkResult;
     }
+
+    public void update(BootDTO bootDTO) {
+        sql.update("Boot.update",bootDTO);
+    }
+
+//    public List<LankDTO> lank() {
+//        return sql.selectList("Boot.lank");
+//    }
 }

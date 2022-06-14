@@ -64,54 +64,58 @@
                         <td>${bootList.companyName}</td>
                         <td>${bootList.bootStrength}</td>
                         <td>${bootList.bootDate}</td>
-                        <td><button class="btn_show">선택</button> </td>
+                        <td>
+                            <button class="btn_show" onclick="b_id('${bootList.b_id}')">선택</button>
+                        </td>
                     </tr>
                     </c:forEach>
             </div>
             </table>
             <article>
-                <div class="update_boot" role="main" style="display: none" >
-                    <form action="/boot/save" method="post">
+                <div class="update_boot" role="main" style="display: none">
+                    <form action="/boot/update" method="post">
                         <div class="mb-3">
-                            <label for="companyName">companyName</label>
-                            <input type="text" class="form-control" name="companyName"
-<%--                                   value="${menu.companyName}"--%>
-                                   id="companyName"
-<%--                                   placeholder="${menu.companyName}" --%>
-                                   readonly></div>
+                            <label for="b_id">예약번호</label>
+                            <input type="text" class="form-control" name="b_id"
+                                   id="b_id" readonly></div>
                         <div class="mb-3">
                             <label for="memberName">memberName</label>
-                            <input type="text" class="form-control" name="memberName" value="${sessionScope.loginMemberName}"
+                            <input type="text" class="form-control" name="memberName"
+                                   value="${sessionScope.loginMemberName}"
                                    id="memberName" placeholder="${sessionScope.loginMemberName}" readonly></div>
                         <div class="mb-3">
                             <label for="datepiker">날짜선택</label>
                             <input type="date" class="form-control" name="bootDate" id="datepiker"></div>
                         <div class="mb-3">
                             <label for="bootStrength">인원</label>
-                            <input type="text" class="form-control" name="bootStrength" id="bootStrength" ></div>
+                            <input type="text" class="form-control" name="bootStrength" id="bootStrength"></div>
                         <div>
                             <input type="submit" class="btn btn-sm btn-primary" value="예약변경">
                         </div>
                     </form>
                 </div>
             </article>
-            </div>
         </div>
     </div>
 </div>
+</div>
 </body>
 <script>
-    $(function (){
-        $('.btn_show').click(function (){
+    $(function () {
+        $('.btn_show').click(function () {
             $('.update_boot').show();
             $('.btn btn-sm btn-primary').hide();
-            });
+        });
     });
 
     $(function () {
         $("#datepiker").datepicker({
-            dateFormat :'yy-mm-dd'
+            dateFormat: 'yy-mm-dd'
         });
     });
+
+    function b_id(b_id) {
+        document.getElementById("b_id").value = b_id;
+    }
 </script>
 </html>

@@ -20,4 +20,5 @@
     <select id="findById" resultType="company">
         select *from company_table where c_id=#{c_id}
     </select>
+
 </mapper>

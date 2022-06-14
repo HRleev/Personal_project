@@ -14,4 +14,5 @@
     <update id="update" parameterType="review">
         update review_table set reviewContents=#{reviewContents} where companyName=#{companyName} and memberName=#{memberName}
     </update>
+
 </mapper>

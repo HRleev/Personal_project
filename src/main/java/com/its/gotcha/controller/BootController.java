@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/boot")
 public class BootController {
@@ -32,5 +34,15 @@ public class BootController {
         String checkResult =bootService.idCheck(bootDTO);
         return checkResult;
     }
-
+    @PostMapping("/update")
+    public String update(@ModelAttribute BootDTO bootDTO){
+        bootService.update(bootDTO);
+        return "redirect:/member/detail";
+    }
+    @GetMapping("/lank")
+    public String lank(Model model){
+        List<LankDTO>lankDTOList=bootService.lank();
+        model.addAttribute("lank",lankDTOList);
+        return "/mainPages/lank";
+    }
 }
