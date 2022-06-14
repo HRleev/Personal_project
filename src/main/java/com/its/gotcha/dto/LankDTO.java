@@ -9,7 +9,7 @@ import java.sql.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class lankDTO {
+public class LankDTO {
     long c_id;
     String companyId;
     String companyPassword;

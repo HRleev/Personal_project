@@ -23,7 +23,7 @@
     <update id="update" parameterType="boot">
         update boot_table set bootDate=#{bootDate}, bootStrength=#{bootStrength} where b_id=#{b_id}
     </update>
-    <update id="lank">
-
+    <update id="lank" parameterType="boot">
+        update company_table x inner join boot_table y on x.companyName=y.companyName set x.bootCount=x.bootCount+1 where x.companyName=#{companyName}
     </update>
 </mapper>
