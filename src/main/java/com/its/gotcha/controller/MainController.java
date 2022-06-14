@@ -1,5 +1,6 @@
 package com.its.gotcha.controller;
 
+import com.its.gotcha.dto.CompanyDTO;
 import com.its.gotcha.dto.MenuDTO;
 import com.its.gotcha.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class MainController {
         model.addAttribute("locationList",locationList);
         return "mainPages/location";
     }
-
+    @GetMapping("/lank")
+    public String lank(Model model){
+        List<CompanyDTO>companyDTOList=mainService.lank();
+        model.addAttribute("lank",companyDTOList);
+        return "/mainPages/lank";
+    }
 }

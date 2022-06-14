@@ -1,5 +1,6 @@
 package com.its.gotcha.service;
 
+import com.its.gotcha.dto.CompanyDTO;
 import com.its.gotcha.dto.MenuDTO;
 import com.its.gotcha.repository.MainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class MainService {
     public List<MenuDTO> findLocation(String c_location) {
         List<MenuDTO>locationList=mainRepository.findLocation(c_location);
         return locationList;
+    }
+
+        public List<CompanyDTO> lank() {
+        List<CompanyDTO> companyDTOList=mainRepository.lank();
+        return companyDTOList;
     }
 }

@@ -40,7 +40,5 @@ public class BootRepository {
         sql.update("Boot.update",bootDTO);
     }
 
-//    public List<LankDTO> lank() {
-//        return sql.selectList("Boot.lank");
-//    }
+
 }

@@ -20,5 +20,7 @@
     <select id="findById" resultType="company">
         select *from company_table where c_id=#{c_id}
     </select>
-
+    <select id="lank" resultType="company">
+        select * from company_table order by bootCount desc;
+    </select>
 </mapper>

@@ -145,7 +145,7 @@
             <c:if test="${sessionScope.loginMemberName!= null}">
                 <a href="/member/detail">myPage</a>&nbsp;
             </c:if>
-            <a href="/boot/lank">Lanking</a>&nbsp;
+            <a href="/main/lank">Lanking</a>&nbsp;
         </div>
     </div>
     <div class="container" style="width: 1000px">

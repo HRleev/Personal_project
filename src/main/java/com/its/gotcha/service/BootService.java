@@ -41,8 +41,5 @@ public class BootService {
     public void update(BootDTO bootDTO) {
         bootRepository.update(bootDTO);
     }
-//    public List<LankDTO> lank() {
-//        List<LankDTO> lankDTOList=bootRepository.lank();
-//        return lankDTOList;
-//    }
+
 }

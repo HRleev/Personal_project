@@ -1,7 +1,7 @@
 package com.its.gotcha.controller;
 
 import com.its.gotcha.dto.BootDTO;
-import com.its.gotcha.dto.LankDTO;
+
 import com.its.gotcha.dto.MenuDTO;
 import com.its.gotcha.service.BootService;
 import com.its.gotcha.service.MenuService;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 @RequestMapping("/boot")
@@ -40,10 +39,5 @@ public class BootController {
         bootService.update(bootDTO);
         return "redirect:/member/detail";
     }
-//    @GetMapping("/lank")
-//    public String lank(Model model){
-//        List<LankDTO>lankDTOList=bootService.lank();
-//        model.addAttribute("lank",lankDTOList);
-//        return "/mainPages/lank";
-//    }
+
 }
