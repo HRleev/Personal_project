@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
@@ -34,7 +34,7 @@
                 <label for="bootStrength">인원</label>
                 <input type="text" class="form-control" name="bootStrength" id="bootStrength" ></div>
             <div>
-                <input type="submit" onclick="boot()" class="btn btn-sm btn-primary" value="예약">
+                <input type="submit" onclick="boot()"id="save" class="btn btn-sm btn-primary" value="예약">
             </div>
         </form>
     </div>
@@ -47,9 +47,39 @@
         });
     });
 
-    function boot(){
-        saveForm.submit();
+    $(document).ready(function (){
+        $("#save").click(function (){
+            boot();
+        })
+    })
+    function boot() {
+        console.log("함수호출");
+        var IMP = window.IMP;
+        IMP.init(' imp72624975');
+        IMP.request_pay({
+            pg: "kakaopay",
+            pay_method: 'card',
+            merchant_uid: 'merchant_' + new Date().getTime(),
+            name: '결제',
+            amount: 10000,
+            buyer_email: '구매자 이메일',
+            buyer_name: '구매자 이름',
+            buyer_tel: '구매자 번호',
+            buyer_addr: '구매자 주소',
+            buyer_postcode: '구매자 주소',
+            m_redirect_url: '/member/detail'
+        }, function (rsp) {
+            if (rsp.success) {
+                var msg = '결제가 완료되었습니다.';
+                location.href = '결제완료후 갈 url';
+            } else {
+                var msg = '결제에 실패하였습니다.';
+                rsp.error_msg;
+
+            }
+        });
     }
+
 
 </script>
 </html>
