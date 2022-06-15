@@ -21,6 +21,10 @@
         delete from menu_table where companyName=#{companyName}
     </delete>
     <select id="lank" resultType="menu">
-        select * from menu_table order by bootCount desc;
+        select * from menu_table order by bootCount desc
     </select>
+    <select id="search" parameterType="java.util.HashMap" resultType="menu">
+        select * from menu_table where ${type} like concat('%',#{q},'%') order by m_id desc
+    </select>
+
 </mapper>

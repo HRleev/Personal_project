@@ -69,16 +69,16 @@
 
 </div>
 <div class="container mt-3">
-    <form action="/main/search" method="get">
-        <select name="searchType">
+<%--    <form action="/main/search" method="get">--%>
+        <select name="searchType" id="search">
             <option value="companyName">레스토랑</option>
             <option value="c_location">지역</option>
         </select>
-        <input type="text" name="p" placeholder="검색어를 입력해주세요">
-        <input type="submit" value="검색">
-    </form>
+        <input type="text" name="q" id="q" placeholder="검색어를 입력해주세요">
+        <input type="button" onclick="searchList()" value="검색">
+
 </div>
-<div class="container">
+<div class="container" id="searchList">
     <table class="table table-striped">
         <tr>
             <th>companyName</th>
@@ -111,4 +111,39 @@
 <%--</c:forEach>--%>
 
 </body>
+<script>
+    function searchList(){
+        console.log("함수호출");
+        const search=document.getElementById("search").value;
+        const q=document.getElementById("q").value;
+
+        $.ajax({
+            type:"get",
+            url:"/main/search",
+            data:{
+                "searchType":search,
+                "q":q
+            },
+            dataType:"json",
+            success:function (result){
+                console.log("성공");
+                let output = "<table class='table table-striped'>";
+                output += "<th>companyName</th>";
+                output += "<th>c_menu</th>";
+                output += "<th>c_introduction</th>";
+                output += "<th>c_location</th></tr>";
+                for(let i in result){
+                    output += "<tr>";
+                    output += "<td>" + result[i].companyName + "</td>";
+                    output += "<td>" + result[i].c_menu + "</td>";
+                    output += "<td>" + result[i].c_introduction + "</td>";
+                    output += "<td>"+  result[i].c_location+"</td>";
+                    output += "</tr>";
+                }
+                output+="</table>";
+                document.getElementById('searchList').innerHTML=output;
+                },
+        });
+    }
+</script>
 </html>

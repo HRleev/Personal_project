@@ -6,7 +6,9 @@ import com.its.gotcha.repository.MainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MainService {
@@ -25,6 +27,14 @@ public class MainService {
 
         public List<MenuDTO> lank() {
         List<MenuDTO> menuDTOList=mainRepository.lank();
+        return menuDTOList;
+    }
+
+    public List<MenuDTO> search(String searchType, String q) {
+        Map<String,String>searchParam=new HashMap<>();
+        searchParam.put("type",searchType);
+        searchParam.put("q",q);
+        List<MenuDTO> menuDTOList=mainRepository.search(searchParam);
         return menuDTOList;
     }
 }

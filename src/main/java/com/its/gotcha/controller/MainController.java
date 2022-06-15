@@ -35,8 +35,9 @@ public class MainController {
         return "/mainPages/lank";
     }
     @GetMapping("/search")
-    public String search(@RequestParam("searchType")String searchType,
-                         @RequestParam("q")String q,Model model){
-        
+    public @ResponseBody List<MenuDTO> search(@RequestParam("searchType")String searchType,
+                                              @RequestParam("q")String q){
+        List<MenuDTO>menuDTOList=mainService.search(searchType,q);
+        return menuDTOList;
     }
 }

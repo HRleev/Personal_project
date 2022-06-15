@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class MainRepository {
@@ -23,5 +24,9 @@ public class MainRepository {
 
     public List<MenuDTO> lank() {
         return sql.selectList("Menu.lank");
+    }
+
+    public List<MenuDTO> search(Map<String, String> searchParam) {
+        return sql.selectList("Menu.search",searchParam);
     }
 }
