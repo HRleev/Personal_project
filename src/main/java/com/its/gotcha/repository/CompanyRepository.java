@@ -33,4 +33,12 @@ public class CompanyRepository {
     public CompanyDTO findById(long checkId) {
         return sql.selectOne("Company.findById",checkId);
     }
+
+    public String duplicateCheck(String companyId) {
+        return sql.selectOne("Company.duplicateCheck",companyId);
+    }
+
+    public String dup_check_Num(String companyNumber) {
+        return sql.selectOne("Company.dup_check_Num",companyNumber);
+    }
 }

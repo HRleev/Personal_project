@@ -21,4 +21,7 @@
     <select id="findById" resultType="member">
         select *from member_table where m_id=#{m_id}
     </select>
+    <select id="duplicateCheck" parameterType="String" resultType="String">
+        select memberId from member_table where memberId=#{memberId}
+    </select>
 </mapper>

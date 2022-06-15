@@ -34,4 +34,9 @@ public class MainController {
         System.out.println("menuDTOList"+menuDTOList);
         return "/mainPages/lank";
     }
+    @GetMapping("/search")
+    public String search(@RequestParam("searchType")String searchType,
+                         @RequestParam("q")String q,Model model){
+        
+    }
 }

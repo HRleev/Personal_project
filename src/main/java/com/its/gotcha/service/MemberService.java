@@ -37,4 +37,13 @@ public class MemberService {
     public MemberDTO findById(long checkId) {
         return memberRepository.findById(checkId);
     }
+
+    public String duplicateCheck(String memberId) {
+        String checkResult=memberRepository.duplicateCheck(memberId);
+        if(checkResult==null){
+            return "ok";
+        }else{
+            return "no";
+        }
+    }
 }

@@ -20,5 +20,10 @@
     <select id="findById" resultType="company">
         select *from company_table where c_id=#{c_id}
     </select>
-
+    <select id="duplicateCheck" parameterType="String" resultType="String">
+        select companyId from company_table where companyId=#{companyId}
+    </select>
+    <select id="dup_check_Num" parameterType="String" resultType="String">
+        select companyNumber from company_table where companyNumber=#{companyNumber}
+    </select>
 </mapper>

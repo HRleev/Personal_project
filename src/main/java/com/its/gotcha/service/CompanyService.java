@@ -43,4 +43,22 @@ public class CompanyService {
     public CompanyDTO findById(long checkId) {
         return companyRepository.findById(checkId);
     }
+
+    public String duplicateCheck(String companyId) {
+        String checkResult=companyRepository.duplicateCheck(companyId);
+        if(checkResult==null){
+            return "ok";
+        }else{
+            return "no";
+        }
+    }
+
+    public String dup_check_Num(String companyNumber) {
+        String checkResult=companyRepository.dup_check_Num(companyNumber);
+        if(checkResult==null){
+            return "ok";
+        }else{
+            return "no";
+        }
+    }
 }

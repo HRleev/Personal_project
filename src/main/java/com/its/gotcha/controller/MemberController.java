@@ -78,4 +78,9 @@ public class MemberController {
         model.addAttribute("bootList",bootDTOList);
         return "/memberPages/myPage";
     }
+    @PostMapping("/duplicate_check")
+    public @ResponseBody String duplicateCheck(@RequestParam("memberId")String memberId){
+        String checkResult=memberService.duplicateCheck(memberId);
+        return checkResult;
+    }
 }

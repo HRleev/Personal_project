@@ -68,6 +68,16 @@
         <img src="../../../resources/img/icon6.jpeg" style="width:5%"></a>
 
 </div>
+<div class="container mt-3">
+    <form action="/main/search" method="get">
+        <select name="searchType">
+            <option value="companyName">레스토랑</option>
+            <option value="c_location">지역</option>
+        </select>
+        <input type="text" name="p" placeholder="검색어를 입력해주세요">
+        <input type="submit" value="검색">
+    </form>
+</div>
 <div class="container">
     <table class="table table-striped">
         <tr>

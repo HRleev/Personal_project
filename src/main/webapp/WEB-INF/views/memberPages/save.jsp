@@ -11,7 +11,15 @@
     <title>save</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <style>
+        @font-face {
+            font-family: 'SuncheonB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
 
         body {
@@ -38,7 +46,7 @@
             position: absolute;
             top: -1.6em;
             padding: 10px;
-            font-family: sans-serif;
+            font-family: 'SuncheonB';
             font-size: .8em;
             letter-spacing: 1px;
             color: rgb(120, 120, 120);
@@ -153,6 +161,23 @@
 </body>
 <script>
     const duplicateCheck = () => {
+        const memberId=document.getElementById("memberId").value;
+        const checkResult=document.getElementById("dup-check-result");
+        $.ajax({
+            type:"post",
+            url:"/member/duplicate_check",
+            data:{"memberId":memberId},
+            dataType:"text",
+            success:function (result){
+                if(result=="ok"){
+                    checkResult.innerHTML="사용 가능한 아이디 입니다";
+                    checkResult.style.color="green";
+                }else{
+                    checkResult.innerHTML="사용중인 아이디 입니다.";
+                    checkResult.style.color="red";
+                }
+            }
+        });
     }
     const regular = () => {
 

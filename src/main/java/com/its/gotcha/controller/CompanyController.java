@@ -88,5 +88,15 @@ public class CompanyController {
         model.addAttribute("bootList",bootDTOList);
         return "/companyPages/myPage";
     }
+    @PostMapping("/duplicate_Check")
+    public @ResponseBody String duplicateCheck(@RequestParam("companyId")String companyId){
+        String checkResult=companyService.duplicateCheck(companyId);
+        return checkResult;
+    }
+    @PostMapping("/dup-check-Num")
+    public @ResponseBody String dup_check_Num(@RequestParam("companyNumber")String companyNumber){
+        String checkResult=companyService.dup_check_Num(companyNumber);
+        return checkResult;
+    }
 
 }

@@ -31,4 +31,8 @@ public class MemberRepository {
     public MemberDTO findById(long checkId) {
         return sql.selectOne("Member.findById",checkId);
     }
+
+    public String duplicateCheck(String memberId) {
+        return sql.selectOne("Member.duplicateCheck",memberId);
+    }
 }

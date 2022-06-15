@@ -95,7 +95,6 @@
                 opacity: 1
             }
         }
-
         /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
             .text {
