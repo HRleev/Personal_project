@@ -19,6 +19,7 @@
             /*margin-left: 300px;*/
             text-align: center;
         }
+
         /*.card {*/
         /*    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
         /*    max-width: 300px;*/
@@ -55,7 +56,7 @@
 <div class="icon">
 
     <a href="/main/location?c_location=청담">
-        <img src="../../../resources/img/icon1.jpeg"  style="width:5%">&nbsp;&nbsp;</a>
+        <img src="../../../resources/img/icon1.jpeg" style="width:5%">&nbsp;&nbsp;</a>
     <a href="/main/location?c_location=성수">
         <img src="../../../resources/img/icon2.jpeg" style="width:5%"></a>&nbsp;&nbsp;
     <a href="/main/location?c_location=서래마을">
@@ -68,23 +69,21 @@
         <img src="../../../resources/img/icon6.jpeg" style="width:5%"></a>
 
 </div>
-<div class="container mt-3">
-<%--    <form action="/main/search" method="get">--%>
-        <select name="searchType" id="search">
-            <option value="companyName">레스토랑</option>
-            <option value="c_location">지역</option>
-        </select>
-        <input type="text" name="q" id="q" placeholder="검색어를 입력해주세요">
-        <input type="button" onclick="searchList()" value="검색">
-
+<div class="container mt-3" style="margin-bottom: 10px">
+    <select name="searchType" id="search">
+        <option value="companyName">레스토랑</option>
+        <option value="c_location">지역</option>
+    </select>
+    <input type="text" name="q" id="q" placeholder="검색어를 입력해주세요">
+    <input type="button" onclick="searchList()" value="검색">
 </div>
 <div class="container" id="searchList">
     <table class="table table-striped">
         <tr>
-            <th>companyName</th>
-            <th>c_menu</th>
-            <th>c_introduction</th>
-            <th>c_location</th>
+            <th>상호명</th>
+            <th>대표메뉴</th>
+            <th>소개</th>
+            <th>지역</th>
             <th>예약</th>
         </tr>
         <c:forEach items="${menuList}" var="menuList">
@@ -112,37 +111,37 @@
 
 </body>
 <script>
-    function searchList(){
+    function searchList() {
         console.log("함수호출");
-        const search=document.getElementById("search").value;
-        const q=document.getElementById("q").value;
+        const search = document.getElementById("search").value;
+        const q = document.getElementById("q").value;
 
         $.ajax({
-            type:"get",
-            url:"/main/search",
-            data:{
-                "searchType":search,
-                "q":q
+            type: "get",
+            url: "/main/search",
+            data: {
+                "searchType": search,
+                "q": q
             },
-            dataType:"json",
-            success:function (result){
+            dataType: "json",
+            success: function (result) {
                 console.log("성공");
                 let output = "<table class='table table-striped'>";
-                output += "<th>companyName</th>";
-                output += "<th>c_menu</th>";
-                output += "<th>c_introduction</th>";
-                output += "<th>c_location</th></tr>";
-                for(let i in result){
+                output += "<th>상호명</th>";
+                output += "<th>대표메뉴</th>";
+                output += "<th>소개</th>";
+                output += "<th>지역</th></tr>";
+                for (let i in result) {
                     output += "<tr>";
                     output += "<td>" + result[i].companyName + "</td>";
                     output += "<td>" + result[i].c_menu + "</td>";
                     output += "<td>" + result[i].c_introduction + "</td>";
-                    output += "<td>"+  result[i].c_location+"</td>";
+                    output += "<td>" + result[i].c_location + "</td>";
                     output += "</tr>";
                 }
-                output+="</table>";
-                document.getElementById('searchList').innerHTML=output;
-                },
+                output += "</table>";
+                document.getElementById('searchList').innerHTML = output;
+            },
         });
     }
 </script>

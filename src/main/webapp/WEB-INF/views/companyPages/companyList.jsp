@@ -16,13 +16,13 @@
 <div class="table table-striped">
     <table class="table">
         <tr>
-            <th>c_id</th>
-            <th>companyId</th>
-            <th>companyPassword</th>
-            <th>companyName</th>
-            <th>companyEmail</th>
-            <th>companyMobile</th>
-            <th>companyLocation</th>
+            <th>번호</th>
+            <th>아이디</th>
+            <th>비밀번호</th>
+            <th>상호명</th>
+            <th>Email</th>
+            <th>전화번호</th>
+            <th>지역</th>
             <th>삭제</th>
 
         </tr>

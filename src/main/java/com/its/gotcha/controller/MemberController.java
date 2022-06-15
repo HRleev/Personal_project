@@ -83,4 +83,5 @@ public class MemberController {
         String checkResult=memberService.duplicateCheck(memberId);
         return checkResult;
     }
+
 }

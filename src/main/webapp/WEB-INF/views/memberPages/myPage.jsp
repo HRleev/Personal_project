@@ -23,27 +23,27 @@
             <table class="table table-striped">
 
                 <tr>
-                    <td>memberId</td>
+                    <td>아이디</td>
                     <td>${member.memberId}</td>
                 </tr>
                 <tr>
-                    <td>memberPassword</td>
+                    <td>비밀번호</td>
                     <td>${member.memberPassword}</td>
                 </tr>
                 <tr>
-                    <td>memberName</td>
+                    <td>이름</td>
                     <td>${member.memberName}</td>
                 </tr>
                 <tr>
-                    <td>memberEmail</td>
+                    <td>Email</td>
                     <td>${member.memberEmail}</td>
                 </tr>
                 <tr>
-                    <td>memberMobile</td>
+                    <td>전화번호</td>
                     <td>${member.memberMobile}</td>
                 </tr>
                 <tr>
-                    <td>memberLocation</td>
+                    <td>지역</td>
                     <td>${member.memberLocation}</td>
                 </tr>
             </table>
@@ -79,7 +79,7 @@
                             <input type="text" class="form-control" name="b_id"
                                    id="b_id" readonly></div>
                         <div class="mb-3">
-                            <label for="memberName">memberName</label>
+                            <label for="memberName">예약자명</label>
                             <input type="text" class="form-control" name="memberName"
                                    value="${sessionScope.loginMemberName}"
                                    id="memberName" placeholder="${sessionScope.loginMemberName}" readonly></div>

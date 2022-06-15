@@ -12,18 +12,19 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <article>
     <div class="container" role="main">
-        <form action="/boot/save" method="post">
+        <form action="/boot/save" method="post" name="saveForm">
             <div class="mb-3">
-                <label for="companyName">companyName</label>
+                <label for="companyName">상호명</label>
                 <input type="text" class="form-control" name="companyName" value="${menu.companyName}"
                        id="companyName" placeholder="${menu.companyName}" readonly></div>
             <div class="mb-3">
-            <label for="memberName">memberName</label>
+            <label for="memberName">예약자명</label>
             <input type="text" class="form-control" name="memberName" value="${sessionScope.loginMemberName}"
                    id="memberName" placeholder="${sessionScope.loginMemberName}" readonly></div>
             <div class="mb-3">
@@ -33,7 +34,7 @@
                 <label for="bootStrength">인원</label>
                 <input type="text" class="form-control" name="bootStrength" id="bootStrength" ></div>
             <div>
-                <input type="submit" class="btn btn-sm btn-primary" value="예약">
+                <input type="submit" onclick="boot()" class="btn btn-sm btn-primary" value="예약">
             </div>
         </form>
     </div>
@@ -45,5 +46,10 @@
             dateFormat :'yy-mm-dd'
         });
     });
+
+    function boot(){
+        saveForm.submit();
+    }
+
 </script>
 </html>

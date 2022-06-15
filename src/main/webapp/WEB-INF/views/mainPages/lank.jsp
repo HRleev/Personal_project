@@ -19,10 +19,10 @@
 <div class="container">
     <table class="table table-striped">
         <tr>
-            <th>companyName</th>
-            <th>c_menu</th>
-            <th>c_introduction</th>
-            <th>c_location</th>
+            <th>상호명</th>
+            <th>대표메뉴</th>
+            <th>소개</th>
+            <th>지역</th>
             <th>예약</th>
         </tr>
         <c:forEach items="${lank}" var="lank">

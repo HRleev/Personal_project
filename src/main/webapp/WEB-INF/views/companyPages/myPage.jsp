@@ -29,31 +29,31 @@
         <div class="col">
             <table class="table table-striped">
                 <tr>
-                    <td>companyId</td>
+                    <td>아이디</td>
                     <td>${company.companyId}</td>
                 </tr>
                 <tr>
-                    <td>companyPassword</td>
+                    <td>비밀번호</td>
                     <td>${company.companyPassword}</td>
                 </tr>
                 <tr>
-                    <td>companyName</td>
+                    <td>상호명</td>
                     <td>${company.companyName}</td>
                 </tr>
                 <tr>
-                    <td>companyEmail</td>
+                    <td>Email</td>
                     <td>${company.companyEmail}</td>
                 </tr>
                 <tr>
-                    <td>companyMobile</td>
+                    <td>전화번호</td>
                     <td>${company.companyMobile}</td>
                 </tr>
                 <tr>
-                    <td>companyNumber</td>
+                    <td>사업자등록번호</td>
                     <td>${company.companyNumber}</td>
                 </tr>
                 <tr>
-                    <td>companyLocation</td>
+                    <td>지역</td>
                     <td>${company.companyLocation}</td>
                 </tr>
             </table>
@@ -77,10 +77,10 @@
     <div class="row">
         <table class="table table-striped">
             <tr>
-                <th>b_id</th>
-                <th>memberName</th>
-                <th>bootStrength</th>
-                <th>bootDate</th>
+                <th>예약번호</th>
+                <th>예약자명</th>
+                <th>예약인원</th>
+                <th>방문일</th>
             </tr>
             <c:forEach items="${bootList}" var="bootList">
                 <tr>

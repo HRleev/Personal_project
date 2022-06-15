@@ -27,7 +27,7 @@
                 <input type="text" class="form-control" name="c_location" id="c_location"
                        placeholder="지역"></div>
             <div class="mb-3">
-                <label for="companyName">companyName</label>
+                <label for="companyName">상호명</label>
                 <input type="text" class="form-control" name="companyName"value="${sessionScope.loginCompanyName}" id="companyName"
                        placeholder="${sessionScope.loginCompanyName}" readonly></div>
             <div class="mb-3">

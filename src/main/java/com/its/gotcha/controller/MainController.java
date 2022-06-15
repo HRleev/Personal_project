@@ -1,6 +1,5 @@
 package com.its.gotcha.controller;
 
-import com.its.gotcha.dto.CompanyDTO;
 import com.its.gotcha.dto.MenuDTO;
 import com.its.gotcha.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +38,9 @@ public class MainController {
                                               @RequestParam("q")String q){
         List<MenuDTO>menuDTOList=mainService.search(searchType,q);
         return menuDTOList;
+    }
+    @GetMapping("/payment")
+    public String payment(){
+        return "/mainPages/payment";
     }
 }

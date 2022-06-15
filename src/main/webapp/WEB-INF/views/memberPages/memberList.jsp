@@ -16,13 +16,12 @@
 <div class="table table-striped">
     <table class="table">
         <tr>
-            <th>m_id</th>
-            <th>memberId</th>
-            <th>memberPassword</th>
-            <th>memberName</th>
-            <th>memberEmail</th>
-            <th>memberMobile</th>
-            <th>memberLocation</th>
+            <th>회원번호</th>
+            <th>회원아이디</th>
+            <th>회원이름</th>
+            <th>Email</th>
+            <th>전화번호</th>
+            <th>지역</th>
             <th>삭제</th>
 
         </tr>
@@ -30,7 +29,6 @@
         <tr>
             <td>${member.m_id}</td>
             <td>${member.memberId}</td>
-            <td>${member.memberPassword}</td>
             <td>${member.memberName}</td>
             <td>${member.memberEmail}</td>
             <td>${member.memberMobile}</td>
