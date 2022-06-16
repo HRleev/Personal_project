@@ -41,4 +41,8 @@ public class CompanyRepository {
     public String dup_check_Num(String companyNumber) {
         return sql.selectOne("Company.dup_check_Num",companyNumber);
     }
+
+    public CompanyDTO findByDetail(String companyName) {
+        return sql.selectOne("Company.findByDetail",companyName);
+    }
 }

@@ -31,8 +31,8 @@
 
         .guide-img {
             margin-top: 30px;
-            width: 600px;
-            height: 500px;
+            width: 80%;
+            height: auto;
         }
 
         .ton {
@@ -50,28 +50,23 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+
 <div class="wrapper" id="wrapperDiv">
     <div class="img swiper-lazy swiper-lazy-loaded"
-         style="background-image: url(https://image.toast.com/aaaaaqx/catchtable/shopinfo/s716/716_19112817413723085.jpg?detail750&quot;);">
+         style="background-image: url(https://image.toast.com/aaaaaqx/catchtable/shopinfo/s716/716_19112817413723085.jpg?detail750&quot;);"><br>
+        <div class="h2" style="text-align: center;margin-top: 20px"><h2>${menu.companyName}</h2></div>
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <img src="${pageContext.request.contextPath}/upload/${menu.c_menuFileName}" class="guide-img">
+                    <img src="${pageContext.request.contextPath}/upload/${company.companyFileName}" class="guide-img">
                 </div>
                 <div class="col">
-                    <div class="ton">
-                        <div class="row">
-                            <h2>${menu.companyName}</h2><br></div>
-                        <div class="row">
-                            <h2>${menu.c_introduction}</h2><br></div>
-                        <div class="row">
-                            <h2>${menu.c_location}</h2></div>
-                    </div>
-                </div>
+                    <img src="${pageContext.request.contextPath}/upload/${menu.c_menuFileName}" class="guide-img"></div>
             </div>
         </div>
     </div>
-    <div class="restaurant-features">
+
+    <div class="restaurant-features" style="text-align: center; margin-bottom: 20px">
         <span class="feature-item">
             <img src="https://catchtable.co.kr/web-static/static_webapp_v2/img/icons-mood/ic_parking.svg" class="icon">
             <span class="label">주차 가능</span>

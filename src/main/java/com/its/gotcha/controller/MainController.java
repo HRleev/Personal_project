@@ -30,7 +30,6 @@ public class MainController {
     public String lank(Model model){
         List<MenuDTO>menuDTOList=mainService.lank();
         model.addAttribute("lank",menuDTOList);
-        System.out.println("menuDTOList"+menuDTOList);
         return "/mainPages/lank";
     }
     @GetMapping("/search")

@@ -4,7 +4,10 @@ import com.its.gotcha.dto.CompanyDTO;
 import com.its.gotcha.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -13,10 +16,18 @@ public class CompanyService {
     private CompanyRepository companyRepository;
 
 
-    public void save(CompanyDTO companyDTO) {
+    public void save(CompanyDTO companyDTO) throws IOException {
+        MultipartFile companyFile = companyDTO.getCompanyFile();
+        String CompanyFileName = companyFile.getOriginalFilename();
+        CompanyFileName = System.currentTimeMillis() + "-" + CompanyFileName;
+        companyDTO.setCompanyFileName(CompanyFileName);
+        String savePath = "C:\\spring_img\\" + CompanyFileName;
+        if (!companyFile.isEmpty()) {
+            companyFile.transferTo(new File(savePath));
+        }
         companyRepository.save(companyDTO);
-
     }
+
 
     public CompanyDTO login(CompanyDTO companyDTO) {
         CompanyDTO loginCompany=companyRepository.login(companyDTO);
@@ -60,5 +71,9 @@ public class CompanyService {
         }else{
             return "no";
         }
+    }
+
+    public CompanyDTO findByDetail(String companyName) {
+        return companyRepository.findByDetail(companyName);
     }
 }

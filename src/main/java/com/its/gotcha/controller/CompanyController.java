@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -30,7 +31,7 @@ public class CompanyController {
     }
 
     @PostMapping("/save")
-    public String saveForm(@ModelAttribute CompanyDTO companyDTO) {
+    public String saveForm(@ModelAttribute CompanyDTO companyDTO) throws IOException {
         companyService.save(companyDTO);
         return "mainPages/main";
     }

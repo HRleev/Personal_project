@@ -16,38 +16,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         .icon {
-            /*margin-left: 300px;*/
             text-align: center;
         }
+        table{
+            width: 100%;
+            border: 1px solid #0d0d0d;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th,td{
+            border: 10px solid #0d0d0d;
+            padding: 10px;
+        }
 
-        /*.card {*/
-        /*    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
-        /*    max-width: 300px;*/
-        /*    margin: auto;*/
-        /*    text-align: center;*/
-        /*    font-family: arial;*/
-        /*}*/
-
-        /*.price {*/
-        /*    color: grey;*/
-        /*    font-size: 22px;*/
-        /*}*/
-
-        /*.card button {*/
-        /*    border: none;*/
-        /*    outline: 0;*/
-        /*    padding: 12px;*/
-        /*    color: white;*/
-        /*    background-color: #000;*/
-        /*    text-align: center;*/
-        /*    cursor: pointer;*/
-        /*    width: 100%;*/
-        /*    font-size: 18px;*/
-        /*}*/
-
-        /*.card button:hover {*/
-        /*    opacity: 0.7;*/
-        /*}*/
     </style>
 </head>
 <body>
@@ -98,16 +80,6 @@
     </table>
 </div>
 
-<%--<h2 style="text-align:center">Product Card</h2>--%>
-<%--<c:forEach items="${menuList}" var="menuList">--%>
-<%--    <div class="card">--%>
-<%--        <img src="${pageContext.request.contextPath}/upload/${menuList.c_menuFileName}" alt="Denim Jeans" style="width:100%">--%>
-<%--        <h1>${menuList.companyName}</h1>--%>
-<%--        <p class="price">${menuList.c_introduction}</p>--%>
-<%--        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>--%>
-<%--        <p><button>Add to Cart</button></p>--%>
-<%--    </div>--%>
-<%--</c:forEach>--%>
 
 </body>
 <script>

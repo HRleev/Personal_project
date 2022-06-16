@@ -5,8 +5,8 @@
 
 <mapper namespace="Company">
     <insert id="save" parameterType="company">
-        insert into company_table (companyId,companyPassword,companyName,companyEmail,companyMobile,companyNumber,companyLocation)
-                values (#{companyId},#{companyPassword},#{companyName},#{companyEmail},#{companyMobile},#{companyNumber},#{companyLocation})
+        insert into company_table (companyId,companyPassword,companyName,companyEmail,companyMobile,companyNumber,companyLocation,companyFileName)
+                values (#{companyId},#{companyPassword},#{companyName},#{companyEmail},#{companyMobile},#{companyNumber},#{companyLocation},#{companyFileName})
     </insert>
     <select id="login" resultType="company">
         select * from company_table where companyId=#{companyId} and companyPassword=#{companyPassword}
@@ -25,5 +25,8 @@
     </select>
     <select id="dup_check_Num" parameterType="String" resultType="String">
         select companyNumber from company_table where companyNumber=#{companyNumber}
+    </select>
+    <select id="findByDetail" resultType="company">
+        select * from company_table where companyName=#{companyName}
     </select>
 </mapper>

@@ -107,7 +107,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="/company/save" method="post">
+    <form action="/company/save" method="post" ENCTYPE="multipart/form-data">
         <label>
             <p class="label-txt">아이디</p>
             <input type="text" class="input" onblur="duplicateCheck()" id="companyId" name="companyId">
@@ -160,6 +160,14 @@
             <div class="line-box">
                 <div class="line"></div>
             </div>
+            <label>
+                <p class="label-txt">대표사진</p>
+                <input type="file" class="input" name="companyFile">
+                <div class="line-box">
+
+                    <div class="line"></div>
+                </div>
+            </label>
         </label>
         <button type="submit">제출</button>
     </form>
