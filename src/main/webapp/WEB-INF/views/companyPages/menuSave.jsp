@@ -9,7 +9,21 @@
 <html>
 <head>
     <title>menuSave</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <script src="/resources/js/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            width: auto;
+            position: relative;
+            background: #fff;
+            min-height: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .05);
+        }
         body {
             padding-top: 70px;
             padding-bottom: 30px;
@@ -21,7 +35,9 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-<body>
+<div class="wrapper" id="wrapperDiv">
+    <div class="img swiper-lazy swiper-lazy-loaded"
+         style="background-image: url(https://image.toast.com/aaaaaqx/catchtable/shopinfo/s716/716_19112817413723085.jpg?detail750&quot;);"><br>
 <article>
     <div class="container" role="main">
         <form action="/menu/save" method="post" enctype="multipart/form-data">
@@ -51,7 +67,8 @@
 
     </div>
 </article>
-
+    </div>
+</div>
 
 </body>
 </html>

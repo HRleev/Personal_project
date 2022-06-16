@@ -23,11 +23,11 @@
 
 
         body {
-            background: #C5E1A5;
+            background: #ffffff;
         }
 
         form {
-            width: 60%;
+            width: 40%;
             margin: 60px auto;
             background: #efefef;
             padding: 60px 120px 80px 120px;
@@ -109,6 +109,7 @@
 </head>
 <body>
 <div class="container">
+
     <form action="/member/save" method="post">
         <label>
             <p class="label-txt">아이디</p>

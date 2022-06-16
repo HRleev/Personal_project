@@ -15,6 +15,16 @@
     <script src="/resources/js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            width: auto;
+            position: relative;
+            background: #fff;
+            min-height: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .05);
+        }
         .icon {
             text-align: center;
         }
@@ -35,6 +45,9 @@
 <body>
 
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<div class="wrapper" id="wrapperDiv">
+    <div class="img swiper-lazy swiper-lazy-loaded"
+         style="background-image: url(https://image.toast.com/aaaaaqx/catchtable/shopinfo/s716/716_19112817413723085.jpg?detail750&quot;);"><br>
 <div class="icon">
 
     <a href="/main/location?c_location=청담">
@@ -79,7 +92,8 @@
         </c:forEach>
     </table>
 </div>
-
+    </div>
+</div>
 
 </body>
 <script>

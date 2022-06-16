@@ -21,7 +21,7 @@
         }
 
         body {
-            background: #C5E1A5;
+            background: #ffffff;
         }
 
         form {
