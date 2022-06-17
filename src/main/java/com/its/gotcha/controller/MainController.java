@@ -38,8 +38,4 @@ public class MainController {
         List<MenuDTO>menuDTOList=mainService.search(searchType,q);
         return menuDTOList;
     }
-    @GetMapping("/payment")
-    public String payment(){
-        return "/mainPages/payment";
-    }
 }

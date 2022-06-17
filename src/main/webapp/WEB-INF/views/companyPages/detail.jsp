@@ -156,7 +156,7 @@
         const btn = document.getElementById("review-btn");
         $.ajax({
             type: "post",
-            url: "/boot/idCheck",
+            url: "/review/idCheck",
             data: {
                 "memberName": memberName,
                 "companyName": companyName,

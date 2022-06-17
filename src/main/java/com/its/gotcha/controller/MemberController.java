@@ -31,6 +31,11 @@ public class MemberController {
         memberService.save(memberDTO);
         return "/mainPages/main";
     }
+    @PostMapping("/duplicate_check")
+    public @ResponseBody String duplicateCheck(@RequestParam("memberId")String memberId){
+        String checkResult=memberService.duplicateCheck(memberId);
+        return checkResult;
+    }
     @GetMapping("/login")
     public String login(){
         return "mainPages/login";
@@ -47,11 +52,6 @@ public class MemberController {
         else {
             return "mainPages/login";
         }
-    }
-    @GetMapping("/logout")
-    public String logout(HttpSession session){
-        session.invalidate();
-        return "mainPages/main";
     }
     @GetMapping("/findAll")
     public String findAll(Model model){
@@ -78,10 +78,10 @@ public class MemberController {
         model.addAttribute("bootList",bootDTOList);
         return "/memberPages/myPage";
     }
-    @PostMapping("/duplicate_check")
-    public @ResponseBody String duplicateCheck(@RequestParam("memberId")String memberId){
-        String checkResult=memberService.duplicateCheck(memberId);
-        return checkResult;
-    }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "mainPages/main";
+    }
 }

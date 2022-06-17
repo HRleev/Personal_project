@@ -29,11 +29,6 @@ public class BootController {
         bootService.save(bootDTO);
         return "redirect:/member/detail";
     }
-    @PostMapping("/idCheck")
-    public @ResponseBody String idCheck(@ModelAttribute BootDTO bootDTO){
-        String checkResult =bootService.idCheck(bootDTO);
-        return checkResult;
-    }
     @PostMapping("/update")
     public String update(@ModelAttribute BootDTO bootDTO){
         bootService.update(bootDTO);

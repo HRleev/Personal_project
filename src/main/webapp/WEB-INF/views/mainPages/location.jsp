@@ -46,7 +46,8 @@
                 <td>${locationList.c_menu}</td>
                 <td>${locationList.c_introduction}</td>
                 <td>${locationList.c_location}</td>
-                <td><a href="/boot/save?companyName=${menuList.companyName}">예약</a></td>
+                <td><a href="/boot/save
+                ?companyName=${menuList.companyName}">예약</a></td>
             </tr>
         </c:forEach>
     </table>

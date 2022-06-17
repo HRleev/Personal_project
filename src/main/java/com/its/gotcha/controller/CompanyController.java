@@ -54,10 +54,28 @@ public class CompanyController {
         }
     }
 
-    @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "/mainPages/main";
+    @PostMapping("/duplicate_Check")
+    public @ResponseBody String duplicateCheck(@RequestParam("companyId")String companyId){
+        String checkResult=companyService.duplicateCheck(companyId);
+        return checkResult;
+    }
+    @PostMapping("/dup-check-Num")
+    public @ResponseBody String dup_check_Num(@RequestParam("companyNumber")String companyNumber){
+        String checkResult=companyService.dup_check_Num(companyNumber);
+        return checkResult;
+    }
+
+    @GetMapping("/detail")
+    public String findById(Model model, HttpSession session) {
+        long checkId = (Long) session.getAttribute("loginId");
+        String companyName = (String) session.getAttribute("loginCompanyName");
+        CompanyDTO companyDTO = companyService.findById(checkId);
+        MenuDTO menu = menuService.findById(companyName);
+        List<BootDTO> bootDTOList = bootService.findAll(companyName);
+        model.addAttribute("company", companyDTO);
+        model.addAttribute("menu", menu);
+        model.addAttribute("bootList",bootDTOList);
+        return "/companyPages/myPage";
     }
 
     @GetMapping("/findAll")
@@ -77,27 +95,9 @@ public class CompanyController {
         }
     }
 
-    @GetMapping("/detail")
-    public String findById(Model model, HttpSession session) {
-        long checkId = (Long) session.getAttribute("loginId");
-        String companyName = (String) session.getAttribute("loginCompanyName");
-        CompanyDTO companyDTO = companyService.findById(checkId);
-        MenuDTO menu = menuService.findById(companyName);
-        List<BootDTO> bootDTOList = bootService.findAll(companyName);
-        model.addAttribute("company", companyDTO);
-        model.addAttribute("menu", menu);
-        model.addAttribute("bootList",bootDTOList);
-        return "/companyPages/myPage";
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "/mainPages/main";
     }
-    @PostMapping("/duplicate_Check")
-    public @ResponseBody String duplicateCheck(@RequestParam("companyId")String companyId){
-        String checkResult=companyService.duplicateCheck(companyId);
-        return checkResult;
-    }
-    @PostMapping("/dup-check-Num")
-    public @ResponseBody String dup_check_Num(@RequestParam("companyNumber")String companyNumber){
-        String checkResult=companyService.dup_check_Num(companyNumber);
-        return checkResult;
-    }
-
 }
